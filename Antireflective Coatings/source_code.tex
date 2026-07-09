@@ -1,0 +1,220 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage[numbers]{natbib}
+\usepackage{siunitx}
+\usepackage{physics}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{times}
+\usepackage{indentfirst}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+
+\geometry{a4paper, margin=2.5cm}
+\onehalfspacing
+
+\begin{document}
+
+% ================= CAPA UFC =================
+\begin{titlepage}
+\begin{center}
+
+\vspace*{2cm}
+
+\includegraphics[width=3cm]{brasao_ufc.png}
+
+\vspace{0.5cm}
+
+\textbf{\large UNIVERSIDADE FEDERAL DO CEARÁ} \\[0.2cm]
+\textbf{DEPARTAMENTO DE ENGENHARIA DE TELEINFORMÁTICA} \\[3cm]
+
+\textbf{\LARGE REVESTIMENTOS ANTIRREFLEXO} \\[2.5cm]
+
+\textbf{Bruno Lopes Gadelha} \\[0.3cm]
+\textbf{Denilson da Silva Pereira} \\[0.3cm]
+\textbf{Erick Vandick de Andrade Silva} \\[0.3cm]
+\textbf{Gabriel de Aguiar Cavalcante} \\[0.3cm]
+\textbf{Joáo Gabriel Martins Lima} \\[0.3cm]
+\textbf{Nelson Kauê Barroso Maia} \\[0.3cm]
+
+\vfill
+
+Fortaleza -- CE \\
+\the\year
+
+\end{center}
+\end{titlepage}
+
+% ================= RESUMO =================
+\begin{center}
+\textbf{RESUMO}
+\end{center}
+
+\begin{quote}
+Este artigo apresenta uma visão abrangente sobre revestimentos antirreflexo (AR), essenciais para o controle da propagação de ondas eletromagnéticas em interfaces dielétricas. O estudo aborda os fundamentos teóricos baseados nas leis de Fresnel e nas condições de interferência destrutiva para filmes finos. Adicionalmente, são exploradas as principais metodologias de fabricação em escala nanométrica, classificadas em métodos químicos, físicos e avançados. Por fim, o trabalho categoriza as arquiteturas de revestimentos disponíveis e discute suas aplicações em setores estratégicos, como energia, fotônica e telecomunicações, destacando também os desafios industriais atuais.
+\end{quote}
+
+\vspace{1cm}
+
+% ================= INTRODUÇÃO =================
+\section{Introdução}
+
+O controle da reflexão na interface entre meios dielétricos é um problema central na fotônica e na engenharia de superfícies. A reflexão indesejada reduz a eficiência de dispositivos ópticos e sistemas fotovoltaicos, motivando o desenvolvimento de revestimentos antirreflexo (AR). Esses revestimentos operam por meio da manipulação da interferência de ondas eletromagnéticas, permitindo minimizar perdas ópticas e maximizar a transmissão de energia.
+
+% ================= FUNDAMENTOS =================
+\section{Fundamentos Teóricos}
+
+A propagação da luz entre meios distintos é descrita pela Lei de Snell:
+
+\begin{equation}
+    n_1 \sin \theta_1 = n_2 \sin \theta_2
+    \label{eq:snell}
+\end{equation}
+
+Para incidência normal, a refletância é dada por:
+
+\begin{equation}
+    R = \left( \frac{n_1 - n_2}{n_1 + n_2} \right)^2
+    \label{eq:fresnel}
+\end{equation}
+
+Revestimentos AR utilizam interferência destrutiva para cancelar as ondas refletidas. Para uma camada única, o índice ideal é:
+
+\begin{equation}
+    n_c = \sqrt{n_a n_s}
+    \label{eq:indice_ideal}
+\end{equation}
+
+e a espessura ótima é:
+
+\begin{equation}
+    t = \frac{\lambda}{4 n_c}
+    \label{eq:espessura}
+\end{equation}
+
+Essas condições são válidas para incidência normal e um comprimento de onda específico, caracterizando revestimentos de banda estreita. Para incidência oblíqua, as componentes de polarização TE e TM apresentam comportamentos distintos, exigindo otimizações mais complexas.
+
+% ================= QUARTO DE ONDA =================
+\section{Projeto de Revestimento de Quarto de Onda}
+
+O princípio de operação baseia-se na diferença de fase entre ondas refletidas na superfície superior e inferior da película. A diferença de fase total é:
+
+\begin{equation}
+    \Delta \phi = \pi
+    \label{eq:fase}
+\end{equation}
+
+o que garante interferência destrutiva completa da onda eletromagnética refletida.
+
+Este modelo é a base teórica para aplicações ópticas simples, como lentes e filtros. No entanto, a transição dessa formulação ideal para a aplicação física exige um controle rigoroso das propriedades dielétricas do material. Garantir que a espessura da camada atinja exatamente a descrita na Equação~\ref{eq:espessura} requer precisão nanométrica. É justamente essa exigência técnica que dita a escolha dos processos de deposição.
+
+% ================= FABRICAÇÃO =================
+\section{Metodologias de Fabricação}
+
+A escolha da técnica de fabricação determina não apenas a fidelidade óptica do revestimento — ou seja, o quão próximo o dispositivo chega da refletância nula prevista pela Equação~\ref{eq:fresnel} —, mas também sua viabilidade mecânica e comercial. As metodologias dividem-se principalmente em abordagens químicas, físicas e técnicas avançadas de nanoestruturação (conforme resumido na Tabela~\ref{tab:metodos}).
+
+\subsection{Métodos Químicos}
+
+O método \textbf{Sol-Gel} permite controle da porosidade e baixo custo, sendo amplamente utilizado em superfícies complexas.
+
+A \textbf{Deposição Química de Vapor (CVD)} é amplamente empregada para produzir filmes finos de alta pureza a partir de reações de precursores voláteis.
+
+A técnica \textbf{PECVD (Plasma-Enhanced CVD)} destaca-se pela deposição de filmes densos e homogêneos em temperaturas mais baixas, sendo aplicada na fabricação de revestimentos resistentes e funcionais.
+
+\subsection{Métodos Físicos}
+
+A \textbf{Deposição Física de Vapor (PVD)} inclui técnicas de evaporação por feixe de elétrons, sendo adequada para materiais de alto ponto de fusão, oferecendo elevada pureza e resistência térmica.
+
+O \textbf{Sputtering} é uma variante de PVD muito utilizada na indústria, excelente para criar filmes densos, uniformes e com forte adesão ao substrato.
+
+Adicionalmente, técnicas como \textbf{Spin Coating} e \textbf{Dip Coating} oferecem alternativas práticas e de menor custo para a deposição de filmes finos a partir de soluções líquidas, ideais para substratos planos e cilíndricos, respectivamente.
+
+\subsection{Métodos Avançados}
+
+A \textbf{Litografia por Nanoimpressão (NIL)} e a técnica de \textbf{Deposição em Ângulo Oblíquo (GLAD)} permitem a fabricação de estruturas de índice graduado e superfícies biomiméticas.
+
+\begin{table}[H]
+\centering
+\caption{Comparação entre métodos de fabricação}
+\label{tab:metodos}
+
+\vspace{0.2cm}
+
+\begin{tabular}{llll}
+\toprule
+\textbf{Método} & \textbf{Vantagens} & \textbf{Limitações} & \textbf{Escalabilidade} \\
+\midrule
+Sol-Gel & Baixo custo & Sensível ao ambiente & Alta \\
+PECVD & Alta qualidade & Alto custo & Moderada \\
+PVD & Alta pureza & Estresse no filme & Moderada \\
+NIL & Alta precisão & Complexidade & Alta \\
+GLAD & Estruturas avançadas & Baixa robustez & Em desenvolvimento \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ================= TIPOS =================
+\section{Tipos de Revestimentos}
+
+\begin{itemize}[itemsep=0.5ex]
+    \item \textbf{Camada Única (Single-layer):} Reduz a refletância de aproximadamente 4\% para cerca de 1,3\% em vidro.
+    \item \textbf{Multicamadas (Multilayer):} Permitem maior largura de banda e melhor desempenho espectral.
+    \item \textbf{Índice Gradual (Graded Index):} Apresentam excelente desempenho angular e espectral, com refletância inferior a 0,5\%.
+\end{itemize}
+
+% ================= APLICAÇÕES =================
+\section{Aplicações Industriais}
+
+\textbf{Energia (Células Solares e LEDs):} Pequenos ganhos de eficiência na transmissão de luz resultam em impactos significativos na geração e economia de energia em larga escala.
+
+\textbf{Dispositivos Ópticos e Fotônicos:} Aplicações fundamentais incluem lentes de câmeras, telescópios, lasers e sensores de precisão.
+
+\textbf{Automotivo e Aeroespacial:} A redução de reflexos em painéis de instrumentos e janelas melhora drasticamente a segurança e a visibilidade operacional.
+
+\textbf{Eletrônicos de Consumo:} Essencial no tratamento de telas de smartphones, tablets e monitores, minimizando o brilho de fontes de luz externas e melhorando o conforto visual do usuário.
+
+% ================= DESAFIOS =================
+\section{Desafios e Limitações}
+
+Embora as aplicações industriais mencionadas demonstrem o imenso potencial prático do controle de ondas em interfaces ópticas, o desenvolvimento de revestimentos antirreflexo ainda enfrenta obstáculos técnicos e comerciais significativos para sua adoção em larga escala:
+
+\begin{itemize}[itemsep=0.5ex]
+    \item \textbf{Durabilidade Ambiental:} Resistência a riscos, umidade e degradação térmica ao longo do tempo.
+    \item \textbf{Escalabilidade de Produção:} Manter a uniformidade e o baixo custo em processos de fabricação em massa.
+    \item \textbf{Adesão em Substratos Flexíveis:} Um desafio técnico crescente devido à demanda por telas dobráveis e eletrônicos vestíveis.
+    \item \textbf{Preocupações Ambientais (PFOS):} A necessidade de substituir compostos perfluorados por alternativas mais ecológicas e sustentáveis.
+\end{itemize}
+
+% ================= CONCLUSÃO =================
+\section{Conclusão}
+
+Revestimentos antirreflexo desempenham um papel essencial na engenharia moderna, sendo fundamentais para o avanço de tecnologias ópticas e energéticas. O desenvolvimento de novas arquiteturas e métodos de fabricação será crucial para superar as limitações atuais, especialmente no que tange à sustentabilidade e à flexibilidade dos substratos, expandindo ainda mais suas aplicações.
+
+% ================= REFERÊNCIAS =================
+\section{Referências}
+
+\begin{thebibliography}{99}
+
+\bibitem{orfanidis}
+ORFANIDIS, S. J.
+\textbf{Electromagnetic Waves and Antennas}.
+Rutgers University, 2016.
+
+\bibitem{review}
+SONG, J. et al.
+Advancements in anti-reflective coatings.
+\textbf{Journal of Materials Research}, 2025.
+
+\bibitem{ofs}
+Optical Filter Source.
+Anti-Reflective Coatings, 2026.
+
+\end{thebibliography}
+
+\end{document}

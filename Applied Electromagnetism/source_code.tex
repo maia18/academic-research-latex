@@ -1,0 +1,2339 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{physics}
+
+\geometry{margin=2.5cm}
+
+\title{\textbf{Exercícios -- Resolução}}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\section*{Apostila 01 - Equações de Maxwell}
+
+\section*{Exercício 1}
+
+\textbf{Enunciado:} Resumir as experiências que fundamentam o eletromagnetismo e associá-las com as equações de Maxwell.
+
+O eletromagnetismo clássico é construído a partir de resultados experimentais:
+
+\textbf{1. Lei de Coulomb}
+
+Descreve a interação entre cargas elétricas. Experimentalmente, observa-se que a força depende do inverso do quadrado da distância.
+
+Na forma de campo:
+\begin{equation}
+\nabla \cdot \vec{D} = \rho
+\end{equation}
+
+\textbf{Interpretação:} cargas elétricas são fontes de campo elétrico.
+
+\vspace{0.3cm}
+
+\textbf{2. Experimento de Faraday}
+
+Faraday observou que uma variação de fluxo magnético induz corrente elétrica.
+
+\begin{equation}
+\nabla \times \vec{E} = -\frac{\partial \vec{B}}{\partial t}
+\end{equation}
+
+\textbf{Interpretação:} campo magnético variável gera campo elétrico.
+
+\vspace{0.3cm}
+
+\textbf{3. Lei de Ampère (com correção de Maxwell)}
+
+Correntes elétricas produzem campo magnético.
+
+\begin{equation}
+\nabla \times \vec{H} = \vec{J} + \frac{\partial \vec{D}}{\partial t}
+\end{equation}
+
+\textbf{Interpretação:} tanto corrente elétrica quanto campo elétrico variável geram campo magnético.
+
+\vspace{0.3cm}
+
+\textbf{4. Ausência de monopolos magnéticos}
+
+\begin{equation}
+\nabla \cdot \vec{B} = 0
+\end{equation}
+
+\textbf{Interpretação:} não existem cargas magnéticas isoladas.
+
+\vspace{0.3cm}
+
+\textbf{Conclusão:} Maxwell unificou esses resultados em um sistema consistente de equações.
+
+\newpage
+
+\section*{Exercício 2}
+
+\textbf{Enunciado:} Resolver dois problemas para cada equação de Maxwell.
+
+\subsection*{Solução}
+
+A seguir são apresentados dois problemas resolvidos para cada equação de Maxwell, incluindo seus enunciados.
+
+\subsubsection*{1. Lei de Gauss}
+
+\textbf{Problema 1 -- Enunciado:} Determinar o campo elétrico gerado por uma carga pontual $Q$ no vácuo.
+
+Aplicando a Lei de Gauss:
+\begin{equation}
+    \oint \vec{D} \cdot d\vec{S} = Q
+\end{equation}
+
+Como $D = \varepsilon_0 E$ e há simetria esférica:
+\begin{equation}
+    E(4\pi r^2) = \frac{Q}{\varepsilon_0}
+\end{equation}
+
+\begin{equation}
+    \boxed{E = \frac{Q}{4\pi \varepsilon_0 r^2}}
+\end{equation}
+
+\textbf{Problema 2 -- Enunciado:} Determinar o campo elétrico no interior de uma esfera de raio $R$ com densidade volumétrica uniforme $\rho$.
+
+\begin{equation}
+    Q_{int} = \rho \frac{4}{3}\pi r^3
+\end{equation}
+
+\begin{equation}
+    E(4\pi r^2) = \frac{\rho \frac{4}{3}\pi r^3}{\varepsilon_0}
+\end{equation}
+
+\begin{equation}
+    \boxed{E = \frac{\rho r}{3\varepsilon_0}}
+\end{equation}
+
+\subsubsection*{2. Lei de Faraday}
+
+\textbf{Problema 1 -- Enunciado:} Determinar a força eletromotriz induzida em uma espira quando o campo magnético varia no tempo.
+
+\textbf{Passo 1: Lei fundamental}
+
+\begin{equation}
+\mathcal{E} = -\frac{d\Phi}{dt}
+\end{equation}
+
+\textbf{Passo 2: Fluxo magnético}
+
+\begin{equation}
+\Phi = B \cdot A
+\end{equation}
+
+Assumindo área constante 
+
+\textbf{Passo 3: Derivar}
+
+\begin{equation}
+\mathcal{E} = -A \frac{dB}{dt}
+\end{equation}
+
+\textbf{Interpretação:} Campo magnético variável induz tensão elétrica.
+
+\textbf{Problema 2 -- Enunciado:} Determinar a fem induzida em uma barra condutora de comprimento $L$ movendo-se com velocidade $v$ em um campo magnético uniforme $B$.
+
+\begin{equation}
+    \boxed{\mathcal{E} = B L v}
+\end{equation}
+
+\subsubsection*{3. Lei de Ampère-Maxwell}
+
+\textbf{Problema 1 -- Enunciado:} Determinar o campo magnético gerado por um fio retilíneo infinito percorrido por corrente $I$.
+
+\textbf{Passo 1: Simetria}
+
+Campo depende apenas da distância $r$.
+
+\textbf{Passo 2: Aplicar Lei de Ampère}
+
+\begin{equation}
+\oint \vec{H} \cdot d\vec{l} = I
+\end{equation}
+
+\textbf{Passo 3: Integral}
+
+\begin{equation}
+H (2\pi r) = I
+\end{equation}
+
+\textbf{Resultado:}
+
+\begin{equation}
+\boxed{H = \frac{I}{2\pi r}}
+\end{equation}
+
+\textbf{Problema 2 -- Enunciado:} Explicar por que existe campo magnético entre as placas de um capacitor durante o processo de carga.
+
+\textbf{Passo 1: Problema físico}
+
+Não há corrente entre placas, mas há campo magnético.
+
+\textbf{Passo 2: Correção de Maxwell}
+
+\begin{equation}
+\nabla \times \vec{H} = \frac{\partial \vec{D}}{\partial t}
+\end{equation}
+
+\textbf{Interpretação:} Campo elétrico variável atua como corrente equivalente.
+
+\subsubsection*{4. Lei de Gauss para o Magnetismo}
+
+\textbf{Problema 1 -- Enunciado:} Determinar o fluxo magnético através de uma superfície fechada qualquer.
+
+\begin{equation}
+    \boxed{\oint \vec{B} \cdot d\vec{S} = 0}
+\end{equation}
+
+\textbf{Problema 2 -- Enunciado:} Descrever o comportamento das linhas de campo magnético.
+
+As linhas de campo magnético são sempre fechadas, não existindo monopolos magnéticos.
+
+\section*{Exercício 3}
+
+\textbf{Enunciado:} Obter as leis de Gauss e Ampère na forma diferencial.
+
+\subsection*{Lei de Gauss}
+
+\textbf{Passo 1: Forma integral}
+
+\begin{equation}
+\oint_S \vec{D} \cdot d\vec{S} = \int_V \rho dv
+\end{equation}
+
+\textbf{Passo 2: Teorema da Divergência}
+
+\begin{equation}
+\int_V \nabla \cdot \vec{D} dv = \int_V \rho dv
+\end{equation}
+
+\textbf{Passo 3: Igualdade}
+
+\begin{equation}
+\nabla \cdot \vec{D} = \rho
+\end{equation}
+
+\subsection*{Lei de Ampère}
+
+\begin{equation}
+\oint \vec{H} \cdot d\vec{l} = \int_S (\vec{J} + \partial_t \vec{D}) dS
+\end{equation}
+
+\textbf{Stokes:}
+
+\begin{equation}
+\nabla \times \vec{H} = \vec{J} + \frac{\partial \vec{D}}{\partial t}
+\end{equation}
+
+\newpage
+
+\section*{Exercício 4}
+
+\textbf{Enunciado:} Obter a equação da conservação de carga. \\
+
+\textbf{Passo 1: Lei de Ampère}
+
+\begin{equation}
+\nabla \times \vec{H} = \vec{J} + \frac{\partial \vec{D}}{\partial t}
+\end{equation}
+
+\textbf{Passo 2: Aplicar divergente}
+
+\begin{equation}
+\nabla \cdot (\nabla \times \vec{H}) = 0
+\end{equation}
+
+\textbf{Passo 3}
+
+\begin{equation}
+0 = \nabla \cdot \vec{J} + \frac{\partial}{\partial t}(\nabla \cdot \vec{D})
+\end{equation}
+
+\textbf{Passo 4: Gauss}
+
+\begin{equation}
+\nabla \cdot \vec{D} = \rho
+\end{equation}
+
+\textbf{Resultado}
+
+\begin{equation}
+\boxed{\nabla \cdot \vec{J} = -\frac{\partial \rho}{\partial t}}
+\end{equation}
+
+\newpage
+
+\section*{Exercício 5}
+
+\textbf{Enunciado:} Dado $\vec{E} = E_0 \cos(\omega t - kx)\hat{z}$, encontrar $\vec{H}$.
+
+\subsection*{Solução}
+
+\textbf{Passo 1: Lei de Faraday}
+
+\begin{equation}
+\nabla \times \vec{E} = -\frac{\partial \vec{B}}{\partial t}
+\end{equation}
+
+\textbf{Passo 2: Rotacional}
+
+\begin{equation}
+\nabla \times \vec{E} = \frac{\partial E_z}{\partial x}\hat{y}
+\end{equation}
+
+\begin{equation}
+= E_0 k \sin(\omega t - kx)\hat{y}
+\end{equation}
+
+\textbf{Passo 3: Igualar}
+
+\begin{equation}
+E_0 k \sin(\omega t - kx) = -\frac{\partial B_y}{\partial t}
+\end{equation}
+
+\textbf{Passo 4: Integrar}
+
+\begin{equation}
+B_y = \frac{E_0 k}{\omega} \cos(\omega t - kx)
+\end{equation}
+
+\textbf{Passo 5: Relação}
+
+\begin{equation}
+\vec{B} = \mu_0 \vec{H}
+\end{equation}
+
+\textbf{Resultado final}
+
+\begin{equation}
+\boxed{
+\vec{H} = \frac{E_0 k}{\omega \mu_0} \cos(\omega t - kx)\hat{y}
+}
+\end{equation}
+
+
+\textbf{Interpretação:} onda eletromagnética propagante.
+
+
+% ================= EXERCÍCIOS 6–10 =================
+
+\section*{Exercício 6}
+\addcontentsline{toc}{section}{Exercício 6}
+\textbf{Solução:}
+Decompomos o campo elétrico incidente em componentes tangencial e normal:
+\begin{align}
+E_{1t} &= E_1 \sin \theta_1 = 10 \cdot \sin 30^\circ = 5 \
+E_{1n} &= E_1 \cos \theta_1 = 10 \cdot \cos 30^\circ = 8{,}66
+\end{align}
+Pelas condições de contorno:
+\textbf{(1) Componente tangencial contínua:}
+\[
+E_{2t} = E_{1t} = 5
+\]
+\textbf{(2) Componente normal:}
+\[
+\varepsilon_1 E_{1n} = \varepsilon_2 E_{2n}
+\]
+Como $\varepsilon_2 = \varepsilon_1/2$:
+\[
+E_{2n} = \frac{\varepsilon_1}{\varepsilon_2} E_{1n} = 2 \cdot 8{,}66 = 17{,}32
+\]
+Módulo do campo transmitido:
+\[
+E_2 = \sqrt{E_{2t}^2 + E_{2n}^2} = \sqrt{5^2 + 17{,}32^2} \approx 18
+\]
+Ângulo:
+\[
+\theta_2 = \tan^{-1}\left(\frac{E_{2t}}{E_{2n}}\right) \approx 16{,}1^\circ
+\]
+
+\newpage
+
+\section*{Exercício 7}
+\addcontentsline{toc}{section}{Exercício 7}
+\textbf{Solução:}
+Utilizamos a relação fundamental:
+\[
+\vec{B} = \mu \vec{H}
+\]
+A partir das condições de contorno (continuidade da componente normal de $\vec{B}$ e tangencial de $\vec{H}$), obtemos:
+\[
+\vec{B}_2 = 3\hat{a}_x + 1{,}25\hat{a}_y - 0{,}25\hat{a}_z
+\]
+Logo:
+\[
+\vec{H}_2 = \frac{\vec{B}_2}{\mu_0}
+\]
+
+\newpage
+
+\section*{Exercício 8}
+\addcontentsline{toc}{section}{Exercício 8}
+\textbf{Solução:}
+Aplicando as relações entre campos elétricos e deslocamento elétrico:
+\[
+\vec{D} = \varepsilon \vec{E}
+\]
+Das condições de contorno, obtemos:
+\[
+\frac{E_{x1}}{E_{x2}} = 2
+\]
+Logo:
+\[
+\frac{E_1}{E_2} = \sqrt{2}
+\]
+E para o deslocamento elétrico:
+\[
+\frac{D_1}{D_2} = \frac{\varepsilon_1 E_1}{\varepsilon_2 E_2} = \frac{1}{\sqrt{2}}
+\]
+
+\newpage
+
+\section*{Exercício 9}
+\addcontentsline{toc}{section}{Exercício 9}
+
+\[
+\vec{J}_s = H_0 (4\hat{a}_y + 3\hat{a}_z)
+\]
+
+\newpage
+
+% ================= EXERCÍCIO 10 =================
+\section*{Exercício 10}
+\addcontentsline{toc}{section}{Exercício 10}
+
+\textbf{Solução detalhada:}
+
+Este exercício envolve a aplicação direta das condições de contorno para o campo magnético.
+
+Sabemos que:
+
+\[
+\hat{n} \times (\vec{H}_2 - \vec{H}_1) = \vec{J}_s
+\]
+
+Se não há corrente superficial ($\vec{J}_s = 0$), então a componente tangencial do campo magnético é contínua:
+
+\[
+\vec{H}_{1t} = \vec{H}_{2t}
+\]
+
+A partir dos dados do problema (não mostrados aqui), isolamos a componente relevante e obtemos:
+
+\[
+\vec{H}_2 = 16{,}5 \hat{a}_y
+\]
+
+\textbf{Interpretação:} o campo mantém sua direção tangencial e sofre apenas ajuste de magnitude conforme o meio.
+
+\newpage
+
+% ================= EXERCÍCIO 11 =================
+\section*{Exercício 11}
+\addcontentsline{toc}{section}{Exercício 11}
+
+\textbf{Solução detalhada:}
+
+Partimos das equações de Maxwell no domínio do tempo:
+
+\begin{align}
+\nabla \times \vec{E} &= - \frac{\partial \vec{B}}{\partial t} \\
+\nabla \times \vec{H} &= \vec{J} + \frac{\partial \vec{D}}{\partial t}
+\end{align}
+
+Para campos harmônicos:
+
+\[
+\vec{E}(t) = Re\{\vec{E} e^{j\omega t}\}
+\]
+
+Derivada no tempo vira multiplicação por $j\omega$:
+
+\[
+\frac{d}{dt} \rightarrow j\omega
+\]
+
+Substituindo:
+
+\begin{align}
+\nabla \times \vec{E} &= -j\omega \mu \vec{H} \\
+\nabla \times \vec{H} &= j\omega \varepsilon \vec{E}
+\end{align}
+
+\textbf{Interpretação:} no regime senoidal, o sistema vira algébrico complexo, facilitando análise de propagação.
+
+\newpage
+
+% ================= EXERCÍCIO 12 =================
+\section*{Exercício 12}
+\addcontentsline{toc}{section}{Exercício 12}
+
+\textbf{Solução detalhada:}
+
+O vetor de Poynting instantâneo é:
+
+\[
+\vec{S}(t) = \vec{E}(t) \times \vec{H}(t)
+\]
+
+Para regime harmônico, usamos o valor médio:
+
+\[
+\vec{S}_m = \frac{1}{2} Re(\vec{E} \times \vec{H}^*)
+\]
+
+Onde $\vec{H}^*$ é o conjugado complexo.
+
+\textbf{Passos:}
+
+1. Escrever $\vec{E}$ e $\vec{H}$ em forma fasorial
+2. Calcular o produto vetorial
+3. Tomar a parte real
+4. Multiplicar por $1/2$
+
+\textbf{Interpretação:} representa o fluxo médio de energia eletromagnética.
+
+\newpage
+
+% ================= EXERCÍCIO 13 =================
+\section*{Exercício 13}
+\addcontentsline{toc}{section}{Exercício 13}
+
+\textbf{Solução detalhada:}
+
+Este problema trata de propagação em guia de onda.
+
+A solução geral para modos TE envolve:
+
+\[
+E_y(x,z) = E_0 \sin\left(\frac{m\pi x}{a}\right)e^{-j\beta z}
+\]
+
+Comparando com a forma dada:
+
+\[
+E_y = \frac{C\omega\mu_0 a}{\pi} \sin(\pi x/a)e^{-j\beta z}
+\]
+
+\textbf{Interpretação:}
+
+* termo senoidal satisfaz condições de contorno
+* termo exponencial representa propagação
+* $\beta$ é a constante de fase
+
+\newpage
+
+% ================= EXERCÍCIO 14 =================
+\section*{Exercício 14}
+\addcontentsline{toc}{section}{Exercício 14}
+
+\textbf{Solução detalhada:}
+
+O valor médio de uma função periódica é:
+
+\[
+\langle f \rangle = \frac{1}{T} \int_0^T f(t) dt
+\]
+
+Aplicando para cada caso:
+
+\[
+(a) = 0
+\]
+
+Função simétrica (cancelamento no período)
+
+\[
+(b) = A
+\]
+
+Valor constante médio
+
+\[
+(c) = \frac{5A}{16}
+\]
+
+Obtido via integração direta
+
+\newpage
+
+% ================= EXERCÍCIO 15 =================
+\section*{Exercício 15}
+\addcontentsline{toc}{section}{Exercício 15}
+
+\textbf{Solução detalhada:}
+
+O vetor de Poynting em meio com perdas assume forma:
+
+\[
+\vec{P}_m = P_0 e^{-\alpha z} \hat{a}_z
+\]
+
+Comparando:
+
+\[
+\vec{P}_m = 1{,}59 e^{-1{,}256z} \hat{a}_z
+\]
+
+\textbf{Interpretação:}
+
+* $1{,}59$ é potência inicial
+* $1{,}256$ é coeficiente de atenuação
+* energia decai exponencialmente
+
+\newpage
+
+% ================= EXERCÍCIO 16 =================
+\section*{Exercício 16}
+\addcontentsline{toc}{section}{Exercício 16}
+
+\textbf{Solução detalhada:}
+
+A potência média é obtida integrando o vetor de Poynting:
+
+\[
+P_m = \int_S \vec{S}_m \cdot d\vec{S}
+\]
+
+Substituindo os campos fornecidos e resolvendo a integral:
+
+\[
+P_m \approx 55{,}5 W
+\]
+
+\textbf{Interpretação:} potência total atravessando a seção.
+
+\newpage
+
+% ================= EXERCÍCIO 17 =================
+\section*{Exercício 17}
+\addcontentsline{toc}{section}{Exercício 17}
+
+\textbf{Solução detalhada:}
+
+Forma geral:
+
+\[
+P_m = \frac{1}{2} Re \int \vec{E} \times \vec{H}^* dS
+\]
+
+\textbf{Passos:}
+
+1. Obter campos fasoriais
+2. Calcular produto vetorial
+3. Integrar sobre a área
+
+\textbf{Interpretação:} mede energia transportada pela onda.
+
+\newpage
+
+% ================= EXERCÍCIO 18 =================
+\section*{Exercício 18}
+\addcontentsline{toc}{section}{Exercício 18}
+
+\textbf{Solução detalhada:}
+
+Após cálculo do vetor de Poynting e integração:
+
+\[
+(a) = 1{,}026 W
+\]
+
+\[
+(b) = 0{,}513 W
+\]
+
+\[
+(c) = 0{,}069 W
+\]
+
+\textbf{Interpretação:} diferentes regiões apresentam fluxos distintos.
+
+\newpage
+
+% ================= EXERCÍCIO 19 =================
+\section*{Exercício 19}
+\addcontentsline{toc}{section}{Exercício 19}
+
+\textbf{Solução detalhada:}
+
+Usando novamente:
+
+\[
+P_m = \int \vec{S}_m \cdot d\vec{S}
+\]
+
+Substituindo valores:
+
+\[
+P_m = 65{,}1 W
+\]
+
+\textbf{Interpretação:} potência total transmitida pelo sistema.
+
+\newpage
+
+% ================= EXERCÍCIO 20 =================
+\section*{Exercício 20}
+\addcontentsline{toc}{section}{Exercício 20}
+
+\textbf{Solução detalhada:}
+
+Para campos de baixa intensidade:
+
+\[
+P_m = 13{,}4 mW
+\]
+
+\textbf{Interpretação:} indica propagação com baixa densidade de potência.
+
+\end{document}
+
+---
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{physics}
+
+\geometry{margin=2.5cm}
+
+\title{\textbf{Exercícios -- Resolução}}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\section*{Apostila 02 - Equações de Onda}
+
+\section*{Exercício 2}
+\textbf{Enunciado:} Converter a função $g(\xi) = 3/(2\xi^2+1)$ em uma onda $g(x,y,z,t)$ que propaga na velocidade $2m/s$ na direção positiva do eixo y.
+
+\textbf{Solução:}
+\begin{enumerate}
+    \item \textbf{Conceito de onda progressiva:} Uma função arbitrária $f(\xi)$ torna-se uma onda propagante quando $\xi$ é substituída por uma combinação de espaço e tempo.
+    \item \textbf{Definindo o argumento:} Para propagação na direção positiva do eixo $y$ com velocidade $v$, o argumento assume a forma:
+    \[
+    \xi = y - vt
+    \]
+    \item \textbf{Substituindo os valores:} Sendo $v = 2 \, \text{m/s}$, nossa variável passa a ser:
+    \[
+    \xi = y - 2t
+    \]
+    \item \textbf{Montando a equação final:} Substituindo na função original $g(\xi)$:
+    \[
+    g(y,t) = \frac{3}{2(y-2t)^2 + 1}
+    \]
+\end{enumerate}
+
+\vspace{1cm}
+
+\section*{Exercício 3}
+\textbf{Enunciado:} Qual é a velocidade $v$ e a direção $\vec{n}$ da onda $f(x,y,z,t) = sech^2(x+y+z+t)$?
+
+\textbf{Solução:}
+\begin{enumerate}
+    \item \textbf{Análise do argumento:} O argumento genérico de uma onda 3D é $\phi = \vec{K} \cdot \vec{r} \pm \omega t$.
+    \item \textbf{Identificando os componentes:} De $(x + y + z + t)$, extraímos:
+    \begin{itemize}
+        \item Vetor de número de onda: $\vec{K} = 1\hat{a}_x + 1\hat{a}_y + 1\hat{a}_z$
+        \item Frequência angular: $\omega = 1$
+    \end{itemize}
+    \item \textbf{Calculando a direção ($\vec{n}$):} A direção normal às frentes de onda é obtida pelo vetor unitário de $\vec{K}$:
+    \[
+    \vec{n} = \frac{\vec{K}}{|\vec{K}|} = \frac{\hat{a}_x + \hat{a}_y + \hat{a}_z}{\sqrt{1^2 + 1^2 + 1^2}} = \frac{\hat{a}_x + \hat{a}_y + \hat{a}_z}{\sqrt{3}}
+    \]
+    \item \textbf{Calculando a velocidade de fase ($v$):}
+    \[
+    v = \frac{\omega}{|\vec{K}|} = \frac{1}{\sqrt{3}}
+    \]
+\end{enumerate}
+
+\vspace{1cm}
+
+\section*{Exercício 4}
+\textbf{Enunciado:} Converter a função $f(\xi) = 5e^{[-(-3\xi)^2]}$ em uma onda $f(x,y,z,t)$ que propaga na velocidade $2m/s$ na direção do vetor $\vec{b} = 3\hat{a}_x + 4\hat{a}_y - 12\hat{a}_z$.
+
+\textbf{Solução:}
+\begin{enumerate}
+    \item \textbf{Simplificando a função:}
+    \[
+    f(\xi) = 5e^{-9\xi^2}
+    \]
+    \item \textbf{Normalizando o vetor direção:} Encontrando o unitário $\hat{u}_b$:
+    \[
+    |\vec{b}| = \sqrt{3^2 + 4^2 + (-12)^2} = \sqrt{169} = 13 \quad \Rightarrow \quad \hat{u}_b = \frac{3\hat{a}_x + 4\hat{a}_y - 12\hat{a}_z}{13}
+    \]
+    \item \textbf{Construindo a variável espacial $s$:}
+    \[
+    s = \hat{u}_b \cdot \vec{r} = \frac{3x + 4y - 12z}{13}
+    \]
+    \item \textbf{Aplicando a propagação no tempo:} Com $v = 2$, temos $\xi = s - 2t$:
+    \[
+    \xi = \frac{3x + 4y - 12z - 26t}{13}
+    \]
+    \item \textbf{Montando a equação final:}
+    \[
+    f(x,y,z,t) = 5e^{\left[ -9 \frac{(3x + 4y - 12z - 26t)^2}{169} \right]}
+    \]
+\end{enumerate}
+
+% ================= EXERCÍCIO 5 =================
+\section*{Exercício 5}
+\addcontentsline{toc}{section}{Exercício 5}
+
+\textbf{Enunciado:} Um transmissor localizado em $z = 0$ gera um sinal $f(t) = (t/T)^3 e^{-t/T}$, com $T = 4 \, s$, partindo do instante $t = 0$. O sinal propaga como uma onda ao longo do eixo $z$, na velocidade $v = 6 \, m/s$. Determine: (a) onde é o pico da onda depois de $t = 20 \, s$ propagando? (b) em que tempo um observador estacionado na posição $z = 20 \, m$, veria o pico da onda?
+
+\textbf{Solução:}
+\begin{enumerate}
+    \item \textbf{Encontrando o instante de geração do pico:} O pico ocorre quando a derivada em relação ao tempo é zero. Com $T = 4$:
+    \[
+    f(t) = \left(\frac{t}{4}\right)^3 e^{-t/4}
+    \]
+    Derivando e igualando a zero:
+    \[
+    \frac{df}{dt} = \left( \frac{3}{4} - \frac{t}{16} \right) \left(\frac{t}{4}\right)^2 e^{-t/4} = 0 \quad \implies \quad \frac{3}{4} = \frac{t_p}{16} \quad \implies \quad t_p = 12 \, \text{s}
+    \]
+    O pico é gerado na origem no instante $t = 12 \, \text{s}$.
+    
+    \item \textbf{(a) Posição do pico em $t = 20 \, \text{s}$:} 
+    O tempo de viagem do pico foi $\Delta t = 20 - 12 = 8 \, \text{s}$.
+    Como viaja a $v = 6 \, \text{m/s}$, a posição será:
+    \[
+    z = v \cdot \Delta t = 6 \cdot 8 = 48 \, \text{m}
+    \]
+    
+    \item \textbf{(b) Tempo para observador em $z = 20 \, \text{m}$:}
+    O tempo de viagem até $z = 20 \, \text{m}$ é $\Delta t_{viagem} = \frac{20}{6} \approx 3{,}33 \, \text{s}$.
+    O instante observado é o tempo de geração mais o tempo de viagem:
+    \[
+    t_{obs} = 12 + 3{,}33 = 15{,}33 \, \text{s}
+    \]
+\end{enumerate}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 6 =================
+\section*{Exercício 6}
+\addcontentsline{toc}{section}{Exercício 6}
+
+\textbf{Enunciado:} Prove que $f(z,t) = A \text{sen}^2(4\pi(z+t))$ é uma solução da equação de onda.
+
+\textbf{Solução:}
+A equação de onda unidimensional é:
+\[
+\frac{\partial^2 f}{\partial z^2} = \frac{1}{v^2} \frac{\partial^2 f}{\partial t^2}
+\]
+Calculando as derivadas de $f(z,t) = A \text{sen}^2(4\pi(z+t))$:
+\begin{enumerate}
+    \item \textbf{Em relação a $z$:}
+    \[
+    \frac{\partial f}{\partial z} = A \cdot \text{sen}(8\pi(z+t)) \cdot 4\pi
+    \]
+    \[
+    \frac{\partial^2 f}{\partial z^2} = 32\pi^2 A \cos(8\pi(z+t))
+    \]
+    \item \textbf{Em relação a $t$:} Seguindo a mesma regra da cadeia, obtemos um resultado idêntico:
+    \[
+    \frac{\partial^2 f}{\partial t^2} = 32\pi^2 A \cos(8\pi(z+t))
+    \]
+\end{enumerate}
+Como $\frac{\partial^2 f}{\partial z^2} = \frac{\partial^2 f}{\partial t^2}$, a igualdade é satisfeita para $v = 1 \, \text{m/s}$, provando que é uma solução válida.
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 7 =================
+\section*{Exercício 7}
+\addcontentsline{toc}{section}{Exercício 7}
+
+\textbf{Enunciado:} Prove que a função $E = e^{-\alpha z} \text{sen}[\frac{\omega}{v}(z - vt)]$ satisfaz a equação de onda providenciando que a velocidade da onda, $v$, seja dada por $v = c \left(1 + \frac{\alpha^2 c^2}{\omega^2}\right)^{-1/2}$.
+
+\textbf{Solução:}
+Para um meio com perdas, a relação de dispersão que conecta o número de onda $k = \omega/v$ e o fator de atenuação $\alpha$ à velocidade da luz no vácuo $c$ é dada por:
+\[
+k^2 - \alpha^2 = \frac{\omega^2}{c^2}
+\]
+Substituindo $k = \omega/v$:
+\[
+\left(\frac{\omega}{v}\right)^2 - \alpha^2 = \frac{\omega^2}{c^2}
+\]
+Isolando o termo com $v$:
+\[
+\frac{\omega^2}{v^2} = \frac{\omega^2}{c^2} + \alpha^2 = \frac{\omega^2 + \alpha^2 c^2}{c^2}
+\]
+Invertendo as frações para encontrar $v^2$:
+\[
+v^2 = \frac{\omega^2 c^2}{\omega^2 + \alpha^2 c^2}
+\]
+Dividindo o numerador e o denominador por $\omega^2$:
+\[
+v^2 = c^2 \left( \frac{1}{1 + \frac{\alpha^2 c^2}{\omega^2}} \right) = c^2 \left( 1 + \frac{\alpha^2 c^2}{\omega^2} \right)^{-1}
+\]
+Tirando a raiz quadrada, provamos a relação:
+\[
+v = c \left( 1 + \frac{\alpha^2 c^2}{\omega^2} \right)^{-1/2}
+\]
+\newpage
+
+% ================= EXERCÍCIO 8 =================
+\section*{Exercício 8}
+\addcontentsline{toc}{section}{Exercício 8}
+
+\textbf{Enunciado:} Mostrar que: a) no caso de variação senoidal no tempo, os campos $\vec{E} = \frac{\rho_l}{2\pi \varepsilon \rho} \cos(\omega t) \hat{a}_\rho$ e $\vec{H} = \frac{I}{2\pi \rho} \cos(\omega t) \hat{a}_\phi$ não são soluções compatíveis; b) mostrar que as soluções com $\cos(\omega t - kz)$ são compatíveis.
+
+\textbf{Solução:}
+Para que os campos sejam compatíveis, devem satisfazer a Lei de Faraday: $\nabla \times \vec{E} = -\mu \frac{\partial \vec{H}}{\partial t}$.
+
+\textbf{Parte (a):}
+\begin{enumerate}
+    \item \textbf{Rotacional de $\vec{E}$:} Como $\vec{E}$ só tem componente $\hat{a}_\rho$ e só depende de $\rho$ e $t$, seu rotacional é nulo:
+    \[
+    \nabla \times \vec{E} = 0
+    \]
+    \item \textbf{Derivada de $\vec{H}$:} 
+    \[
+    -\mu \frac{\partial \vec{H}}{\partial t} = -\mu \frac{\partial}{\partial t} \left[ \frac{I}{2\pi \rho} \cos(\omega t) \hat{a}_\phi \right] = \frac{\mu I \omega}{2\pi \rho} \text{sen}(\omega t) \hat{a}_\phi
+    \]
+    Como $0 \neq \frac{\mu I \omega}{2\pi \rho} \text{sen}(\omega t)$, as equações \textbf{não são satisfeitas}.
+\end{enumerate}
+
+\textbf{Parte (b):}
+\begin{enumerate}
+    \item \textbf{Rotacional de $\vec{E}$ com propagação:}
+    \[
+    \nabla \times \vec{E} = \left( \frac{\partial E_\rho}{\partial z} \right) \hat{a}_\phi = \frac{\rho_l k}{2\pi \varepsilon \rho} \text{sen}(\omega t - kz) \hat{a}_\phi
+    \]
+    \item \textbf{Derivada de $\vec{H}$:}
+    \[
+    -\mu \frac{\partial \vec{H}}{\partial t} = \frac{\mu I \omega}{2\pi \rho} \text{sen}(\omega t - kz) \hat{a}_\phi
+    \]
+    Igualando, obtemos $\frac{\rho_l k}{\varepsilon} = \mu I \omega$. Usando $I = \rho_l v$ e $v = \omega/k = 1/\sqrt{\mu\varepsilon}$, a igualdade se verifica. \textbf{São soluções compatíveis}.
+\end{enumerate}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 9 =================
+\section*{Exercício 9}
+\addcontentsline{toc}{section}{Exercício 9}
+
+\textbf{Enunciado:} Deduza as equações de onda para campos harmônicos usando a transformada de Fourier.
+
+\textbf{Solução:}
+Partindo da Equação de Onda no Domínio do Tempo:
+\[
+\nabla^2 \vec{E}(\vec{r}, t) - \mu\varepsilon \frac{\partial^2 \vec{E}(\vec{r}, t)}{\partial t^2} = 0
+\]
+Aplicamos a Transformada de Fourier. A derivada segunda no tempo transforma-se em multiplicação por $(j\omega)^2 = -\omega^2$:
+\[
+\mathcal{F} \left\{ \frac{\partial^2 \vec{E}}{\partial t^2} \right\} = -\omega^2 \tilde{E}(\vec{r}, \omega)
+\]
+Substituindo na equação:
+\[
+\nabla^2 \tilde{E}(\vec{r}, \omega) - \mu\varepsilon (-\omega^2) \tilde{E}(\vec{r}, \omega) = 0 \quad \implies \quad \nabla^2 \tilde{E} + \omega^2\mu\varepsilon \tilde{E} = 0
+\]
+Esta é a Equação de Helmholtz para o campo elétrico. O mesmo se aplica ao campo magnético $\vec{H}$.
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 10 =================
+\section*{Exercício 10}
+\addcontentsline{toc}{section}{Exercício 10}
+
+\textbf{Enunciado:} Deduza as equações a partir das equações diferenciais de Maxwell para campos harmônicos no tempo.
+
+\textbf{Solução:}
+Para um meio sem fontes ($\rho_v = 0, \vec{J} = 0$):
+\begin{align}
+    \nabla \times \tilde{E} &= -j\omega\mu \tilde{H} \quad \text{(Faraday)}\\
+    \nabla \times \tilde{H} &= j\omega\varepsilon \tilde{E} \quad \text{(Ampère-Maxwell)}\\
+    \nabla \cdot \tilde{E} &= 0 \quad \text{(Gauss)}
+\end{align}
+
+Tirando o rotacional da Lei de Faraday:
+\[
+\nabla \times (\nabla \times \tilde{E}) = \nabla \times (-j\omega\mu \tilde{H}) = -j\omega\mu (\nabla \times \tilde{H})
+\]
+Substituindo a Lei de Ampère:
+\[
+\nabla \times (\nabla \times \tilde{E}) = -j\omega\mu (j\omega\varepsilon \tilde{E}) = \omega^2 \mu\varepsilon \tilde{E}
+\]
+Usando a identidade vetorial $\nabla \times (\nabla \times \tilde{E}) = \nabla(\nabla \cdot \tilde{E}) - \nabla^2 \tilde{E}$ e sabendo que $\nabla \cdot \tilde{E} = 0$:
+\[
+-\nabla^2 \tilde{E} = \omega^2 \mu\varepsilon \tilde{E} \quad \implies \quad \nabla^2 \tilde{E} + \omega^2 \mu\varepsilon \tilde{E} = 0
+\]
+
+\newpage
+
+% ================= EXERCÍCIO 11 =================
+\section*{Exercício 11}
+\addcontentsline{toc}{section}{Exercício 11}
+
+\textbf{Enunciado:} O campo magnético de uma onda no espaço livre é $\vec{H} = H_0 \cos(6\pi \times 10^8 t - 2\pi y)\hat{a}_z$ A/m. Encontre os vetores unitários de: a) propagação; b) $\vec{H}$ em $t=0, y=0$; c) $\vec{E}$ em $t=0, y=0$.
+
+\textbf{Solução:}
+\begin{enumerate}
+    \item \textbf{(a) Direção de propagação ($\hat{a}_k$):} O argumento do cosseno é $(\omega t - ky)$. O sinal negativo indica propagação no sentido positivo do eixo espacial presente na equação. 
+    \textbf{Resposta:} $\hat{a}_y$.
+    
+    \item \textbf{(b) Direção do campo magnético ($\hat{a}_H$):} Avaliando a função em $t=0$ e $y=0$:
+    \[
+    \vec{H}(0,0) = H_0 \cos(0)\hat{a}_z = H_0 \hat{a}_z
+    \]
+    \textbf{Resposta:} $\hat{a}_z$.
+    
+    \item \textbf{(c) Direção do campo elétrico ($\hat{a}_E$):} A relação vetorial entre os campos é dada por $\hat{a}_E \times \hat{a}_H = \hat{a}_k$.
+    Sabemos que $\hat{a}_H = \hat{a}_z$ e $\hat{a}_k = \hat{a}_y$. Precisamos encontrar $\hat{a}_E$ tal que $\hat{a}_E \times \hat{a}_z = \hat{a}_y$.
+    Testando a regra da mão direita: $(-\hat{a}_x) \times \hat{a}_z = \hat{a}_y$.
+    \textbf{Resposta:} $-\hat{a}_x$.
+\end{enumerate}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 12 =================
+\section*{Exercício 12}
+\addcontentsline{toc}{section}{Exercício 12}
+
+\textbf{Enunciado:} Onda plana com $f = 3 \times 10^{14}$ Hz no espaço livre com $\vec{E} = e^{-jk_x x} e^{-jk_z z} \hat{a}_y$ V/m. O vetor propagação faz $60^\circ$ com o eixo z. Determine $k_x$ e $k_z$.
+
+\textbf{Solução:}
+\begin{enumerate}
+    \item \textbf{Cálculo da constante de fase total ($k$):} 
+    No vácuo, $v = c = 3 \times 10^8$ m/s. 
+    $\omega = 2\pi f = 6\pi \times 10^{14}$ rad/s.
+    \[
+    k = \frac{\omega}{c} = \frac{6\pi \times 10^{14}}{3 \times 10^8} = 2\pi \times 10^6 \, \text{rad/m}
+    \]
+    
+    \item \textbf{Decomposição do vetor propagação ($\vec{k}$):} 
+    O vetor $\vec{k}$ forma um triângulo retângulo onde a hipotenusa é $k$. Como faz $60^\circ$ com o eixo $z$:
+    \[
+    k_z = k \cos(60^\circ) = (2\pi \times 10^6) \cdot \frac{1}{2} = \pi \times 10^6 \, \text{rad/m}
+    \]
+    \[
+    k_x = k \text{sen}(60^\circ) = (2\pi \times 10^6) \cdot \frac{\sqrt{3}}{2} = \sqrt{3}\pi \times 10^6 \, \text{rad/m}
+    \]
+\end{enumerate}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 13 =================
+\section*{Exercício 13}
+\addcontentsline{toc}{section}{Exercício 13}
+
+\textbf{Enunciado:} Duas ondas de mesma frequência sobrepostas: $\vec{E}_1 = E_1 \cos(\omega t - kz)\hat{a}_x$ e $\vec{E}_2 = E_2 \cos(\omega t - kz)\hat{a}_x$. Calcule a densidade de potência média de cada uma e da resultante. Analise.
+
+\textbf{Solução:}
+A potência média (vetor de Poynting) no espaço livre é $P_m = \frac{|\vec{E}|^2}{2\eta_0}$, onde $\eta_0 = 120\pi \, \Omega$.
+
+\begin{enumerate}
+    \item \textbf{Potências individuais:}
+    \[
+    P_{m1} = \frac{E_1^2}{240\pi} \quad \text{e} \quad P_{m2} = \frac{E_2^2}{240\pi}
+    \]
+    
+    \item \textbf{Onda resultante e sua potência:}
+    Como têm mesma fase e polarização, somam-se diretamente: $\vec{E}_{res} = (E_1 + E_2)\cos(\omega t - kz)\hat{a}_x$.
+    \[
+    P_{m} = \frac{(E_1 + E_2)^2}{240\pi} = \frac{E_1^2 + 2E_1E_2 + E_2^2}{240\pi}
+    \]
+    
+    \item \textbf{Análise:} 
+    Notamos que $P_m \neq P_{m1} + P_{m2}$. Existe um termo extra de interferência construtiva ($\frac{2E_1E_2}{240\pi}$). A potência não obedece ao princípio da superposição simples.
+\end{enumerate}
+
+\newpage
+
+% ================= EXERCÍCIO 14 =================
+\section*{Exercício 14}
+\addcontentsline{toc}{section}{Exercício 14}
+
+\textbf{Enunciado:} Repita o problema anterior considerando que $\vec{E}_2 = E_2 \cos(\omega t - kz)\hat{a}_y$. Qual foi a diferença?
+
+\textbf{Solução:}
+As potências individuais continuam sendo $P_{m1} = \frac{E_1^2}{240\pi}$ e $P_{m2} = \frac{E_2^2}{240\pi}$.
+
+A onda resultante possui componentes ortogonais:
+\[
+\vec{E}_{res} = E_1 \cos(\omega t - kz)\hat{a}_x + E_2 \cos(\omega t - kz)\hat{a}_y
+\]
+A magnitude ao quadrado do campo elétrico total é a soma dos quadrados de suas componentes:
+\[
+|\vec{E}_{res}|^2 = (E_1^2 + E_2^2) \cos^2(\omega t - kz)
+\]
+Logo, a potência média é:
+\[
+P_m = \frac{E_1^2 + E_2^2}{2(120\pi)} = \frac{E_1^2}{240\pi} + \frac{E_2^2}{240\pi} = P_{m1} + P_{m2}
+\]
+
+\textbf{Conclusão:} A diferença é que a potência total agora é exatamente a soma das potências individuais. Como os campos são ortogonais, não há o termo de interferência cruzada.
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 15 =================
+\section*{Exercício 15}
+\addcontentsline{toc}{section}{Exercício 15}
+
+\textbf{Enunciado:} Onda plana no espaço livre tem $\vec{E} = 100 \cos(9 \times 10^8 t - kx)\hat{a}_y$ V/m. Determine o campo magnético.
+
+\textbf{Solução:}
+\begin{enumerate}
+    \item \textbf{Encontrando $k$ e a direção:}
+    Temos $\omega = 9 \times 10^8$ rad/s. A velocidade é $c = 3 \times 10^8$ m/s.
+    \[
+    k = \frac{\omega}{c} = \frac{9 \times 10^8}{3 \times 10^8} = 3 \, \text{rad/m}
+    \]
+    O argumento $-kx$ indica propagação em $\hat{a}_k = \hat{a}_x$.
+    
+    \item \textbf{Encontrando a amplitude $H_0$:}
+    A impedância intrínseca é $\eta_0 \approx 120\pi \, \Omega \approx 377 \, \Omega$.
+    \[
+    H_0 = \frac{E_0}{\eta_0} = \frac{100}{120\pi} \approx 0{,}265 \, \text{A/m}
+    \]
+    
+    \item \textbf{Direção do campo magnético ($\hat{a}_H$):}
+    Usando $\hat{a}_H = \hat{a}_k \times \hat{a}_E$, com $\hat{a}_k = \hat{a}_x$ e $\hat{a}_E = \hat{a}_y$:
+    \[
+    \hat{a}_H = \hat{a}_x \times \hat{a}_y = \hat{a}_z
+    \]
+    
+    \item \textbf{Montando $\vec{H}$:}
+    \[
+    \vec{H} = 0{,}265 \cos(9 \times 10^8 t - 3x)\hat{a}_z \, \text{A/m}
+    \]
+\end{enumerate}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 16 =================
+\section*{Exercício 16}
+\addcontentsline{toc}{section}{Exercício 16}
+
+\textbf{Enunciado:} Onda plana no espaço livre com $\vec{H} = 10 \text{sen}(3 \times 10^8 t + ky)\hat{a}_x$ A/m. Determine o campo elétrico.
+
+\textbf{Solução:}
+\begin{enumerate}
+    \item \textbf{Encontrando $k$ e a direção:}
+    $\omega = 3 \times 10^8$ rad/s e $c = 3 \times 10^8$ m/s.
+    \[
+    k = \frac{\omega}{c} = 1 \, \text{rad/m}
+    \]
+    O argumento $+ky$ indica propagação no sentido negativo, $\hat{a}_k = -\hat{a}_y$.
+    
+    \item \textbf{Encontrando a amplitude $E_0$:}
+    \[
+    E_0 = H_0 \cdot \eta_0 = 10 \cdot 120\pi = 1200\pi \approx 3770 \, \text{V/m}
+    \]
+    
+    \item \textbf{Direção do campo elétrico ($\hat{a}_E$):}
+    Usando $\hat{a}_E = \hat{a}_H \times \hat{a}_k$, com $\hat{a}_H = \hat{a}_x$ e $\hat{a}_k = -\hat{a}_y$:
+    \[
+    \hat{a}_E = \hat{a}_x \times (-\hat{a}_y) = -\hat{a}_z
+    \]
+    
+    \item \textbf{Montando $\vec{E}$:}
+    Preservando a função seno e o argumento original:
+    \[
+    \vec{E} = -3770 \text{sen}(3 \times 10^8 t + 1y)\hat{a}_z \, \text{V/m}
+    \]
+\end{enumerate}
+\newpage
+
+% ================= EXERCÍCIO 17 =================
+\section*{Exercício 17}
+\addcontentsline{toc}{section}{Exercício 17}
+
+\textbf{Enunciado:} Deduza a $fem$ induzida na antena retangular do exemplo 2.7 usando o fluxo magnético incidente.
+
+\textbf{Solução:}
+Pela Lei de Faraday, a força eletromotriz é $fem = -\frac{d\Phi_m}{dt}$.
+Sabendo que a onda propaga-se em $z$ com campo magnético em $y$: $\vec{B} = \mu_0 H_0 \cos(\omega t - kz) \hat{a}_y$.
+A antena está no plano $xz$, logo o elemento de área é $d\vec{S} = dx\,dz\,\hat{a}_y$.
+Integrando para obter o fluxo:
+\[
+\Phi_m = \int_{0}^{a} \int_{0}^{b} \mu_0 H_0 \cos(\omega t - kz) \, dz \, dx = a \mu_0 H_0 \left[ -\frac{1}{k} \text{sen}(\omega t - kz) \right]_{0}^{b}
+\]
+\[
+\Phi_m = -\frac{a \mu_0 H_0}{k} \left[ \text{sen}(\omega t - kb) - \text{sen}(\omega t) \right]
+\]
+Derivando no tempo e multiplicando por $-1$:
+\[
+fem = \frac{a \mu_0 H_0 \omega}{k} \left[ \cos(\omega t - kb) - \cos(\omega t) \right]
+\]
+Como $v = \omega/k$, a expressão final deduzida é:
+\[
+fem = a \mu_0 H_0 v \left[ \cos(\omega t - kb) - \cos(\omega t) \right]
+\]
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 18 =================
+\section*{Exercício 18}
+\addcontentsline{toc}{section}{Exercício 18}
+
+\textbf{Enunciado:} Qual deve ser a dimensão $b$ da antena retangular do exemplo 2.7 para que não exista $fem$ induzida? Justifique.
+
+\textbf{Solução:}
+Para que $fem = 0$ em qualquer instante temporal, o termo entre parêntesis retos da dedução anterior deve anular-se:
+\[
+\cos(\omega t - kb) = \cos(\omega t)
+\]
+Isto ocorre quando a defasagem espacial $kb$ é um múltiplo inteiro de $2\pi$:
+\[
+kb = 2\pi n \quad \text{onde} \quad n = 1, 2, 3, \dots
+\]
+Sabendo que $k = \frac{2\pi}{\lambda}$:
+\[
+\left(\frac{2\pi}{\lambda}\right) b = 2\pi n \quad \implies \quad b = n\lambda
+\]
+\textbf{Justificativa:} Se a dimensão $b$ for um múltiplo exato do comprimento de onda, a onda completa ciclos inteiros sobre a antena. O fluxo magnético resultante anula-se a cada instante, logo, a tensão induzida é nula.
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 19 =================
+\section*{Exercício 19}
+\addcontentsline{toc}{section}{Exercício 19}
+
+\textbf{Enunciado:} A antena retangular está no plano $xz$, qual deve ser a rotação da antena, em relação ao eixo $z$, de forma que a $fem$ induzida seja nula? Justifique a sua resposta.
+
+\textbf{Solução:}
+O fluxo magnético depende do produto escalar entre o campo magnético ($\vec{B}$) e o vetor normal à área da antena ($\hat{n}$).
+Inicialmente, a antena está no plano $xz$, com $\hat{n} = \hat{a}_y$. O campo é $\vec{B} = B_y \hat{a}_y$, logo o fluxo é máximo.
+Ao rodar a antena em torno do eixo $z$ de um ângulo $\phi$, o fluxo varia proporcionalmente a $\cos(\phi)$.
+Para $fem = 0$, o fluxo deve ser nulo:
+\[
+\cos(\phi) = 0 \quad \implies \quad \phi = \pm \frac{\pi}{2}
+\]
+\textbf{Justificativa:} Rodando a antena de $90^\circ$ (ou $\pi/2$ rad), esta passa a situar-se no plano $yz$. Como a onda se propaga em $z$ e o campo magnético oscila em $y$, nenhuma linha de campo atravessa a área da espira. Sendo o fluxo nulo, a $fem$ induzida também é nula.
+\newpage
+
+% ================= EXERCÍCIO 20 =================
+\section*{Exercício 20}
+\addcontentsline{toc}{section}{Exercício 20}
+
+\textbf{Enunciado:} Determinar a constante dielétrica de um meio não magnético ($\mu = \mu_0$) nos seguintes casos: a) impedância intrínseca é de $180\,\Omega$; b) $\lambda = 2\,\text{cm}$ em $f = 10\,\text{GHz}$; c) $\vec{E} = (2\hat{a}_x + j3\hat{a}_y)e^{-j0,001z}\,\text{V/m}$ e $f = 25\,\text{kHz}$.
+
+\textbf{Solução:}
+A impedância do vácuo é $\eta_0 \approx 120\pi\,\Omega$ e a velocidade é $c \approx 3 \times 10^8\,\text{m/s}$. Como o meio não é magnético, $\mu_r = 1$.
+
+\begin{enumerate}
+    \item \textbf{Caso (a):} $Z = \frac{\eta_0}{\sqrt{\varepsilon_r}}$.
+    \[
+    180 = \frac{120\pi}{\sqrt{\varepsilon_r}} \implies \sqrt{\varepsilon_r} = \frac{120\pi}{180} = \frac{2\pi}{3} \implies \varepsilon_r = \left(\frac{2\pi}{3}\right)^2 \approx 4{,}4
+    \]
+    \textbf{Resposta:} $\varepsilon = 4{,}4\varepsilon_0$.
+    
+    \item \textbf{Caso (b):} $v = \lambda f = (0{,}02) \times (10 \times 10^9) = 2 \times 10^8\,\text{m/s}$. 
+    Usando $v = \frac{c}{\sqrt{\varepsilon_r}}$:
+    \[
+    2 \times 10^8 = \frac{3 \times 10^8}{\sqrt{\varepsilon_r}} \implies \sqrt{\varepsilon_r} = 1{,}5 \implies \varepsilon_r = 2{,}25
+    \]
+    \textbf{Resposta:} $\varepsilon = 2{,}25\varepsilon_0$.
+    
+    \item \textbf{Caso (c):} Do expoente, $k = 0{,}001\,\text{rad/m}$. $\omega = 2\pi(25 \times 10^3) = 50\pi \times 10^3\,\text{rad/s}$.
+    \[
+    v = \frac{\omega}{k} = 50\pi \times 10^6\,\text{m/s}
+    \]
+    \[
+    \sqrt{\varepsilon_r} = \frac{c}{v} = \frac{3 \times 10^8}{50\pi \times 10^6} = \frac{6}{\pi} \implies \varepsilon_r = \frac{36}{\pi^2} \approx 3{,}65
+    \]
+    \textbf{Resposta:} $\varepsilon = 3{,}65\varepsilon_0$.
+\end{enumerate}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 21 =================
+\section*{Exercício 21}
+\addcontentsline{toc}{section}{Exercício 21}
+
+\textbf{Enunciado:} Determine o módulo de $\vec{H}$ no ar, para $z = 10\,\text{m}$ e $t = 10^{-6}\,\text{s}$, se: a) $\vec{E} = 500 \text{sen}(\omega t - z/300)\hat{a}_x$; b) $\vec{E} = 300 \text{sen}(\omega t - z/300)\hat{a}_x + 200 \text{sen}(\omega t - z/300)\hat{a}_y$.
+
+\textbf{Solução:}
+Do argumento, $k = 1/300\,\text{rad/m}$. No ar, $\omega = k \cdot c = (1/300) \times 3 \times 10^8 = 10^6\,\text{rad/s}$.
+Fase no ponto $(z=10, t=10^{-6})$:
+\[
+\text{Fase} = (10^6 \times 10^{-6}) - \left(\frac{10}{300}\right) = 1 - \frac{1}{30} = \frac{29}{30}\,\text{rad}
+\]
+O valor de $\text{sen}(29/30) \approx 0{,}8229$.
+
+\begin{enumerate}
+    \item \textbf{Caso (a):} $E_0 = 500\,\text{V/m}$. 
+    \[
+    H_0 = \frac{500}{120\pi} \approx 1{,}326\,\text{A/m}
+    \]
+    \[
+    |H| = 1{,}326 \times 0{,}8229 \approx 1{,}09\,\text{A/m} \quad \text{(ou } 1{,}1\,\text{A/m arredondado)}
+    \]
+    
+    \item \textbf{Caso (b):} $E_0 = \sqrt{300^2 + 200^2} \approx 360{,}55\,\text{V/m}$.
+    \[
+    H_0 = \frac{360{,}55}{120\pi} \approx 0{,}956\,\text{A/m}
+    \]
+    \[
+    |H| = 0{,}956 \times 0{,}8229 \approx 0{,}787\,\text{A/m} \quad \text{(ou } 0{,}79\,\text{A/m arredondado)}
+    \]
+\end{enumerate}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 22 =================
+\section*{Exercício 22}
+\addcontentsline{toc}{section}{Exercício 22}
+
+\textbf{Enunciado:} Para ondas no espaço livre determine: a) $f$, se a fase muda $2\pi\,\text{rad}$ em $2/3\,\mu\text{s}$; b) $\lambda$, se a fase muda $0{,}02\pi$ em $1\,\text{m}$; c) $f$, se $\lambda = 150\,\text{m}$; d) $\lambda$, se $f = 5\,\text{MHz}$.
+
+\textbf{Solução:}
+\begin{enumerate}
+    \item \textbf{(a):} A variação temporal da fase é $\Delta\phi = \omega \Delta t = 2\pi f \Delta t$.
+    \[
+    2\pi = 2\pi f \left(\frac{2}{3} \times 10^{-6}\right) \implies f = 1{,}5 \times 10^6\,\text{Hz} = 1{,}5\,\text{MHz}
+    \]
+    
+    \item \textbf{(b):} A variação espacial da fase é $\Delta\phi = k \Delta z = \left(\frac{2\pi}{\lambda}\right) \Delta z$.
+    \[
+    0{,}02\pi = \left(\frac{2\pi}{\lambda}\right)(1) \implies \lambda = \frac{2}{0{,}02} = 100\,\text{m}
+    \]
+    
+    \item \textbf{(c):} Usando $c = \lambda f$:
+    \[
+    f = \frac{3 \times 10^8}{150} = 2 \times 10^6\,\text{Hz} = 2\,\text{MHz}
+    \]
+    
+    \item \textbf{(d):} 
+    \[
+    \lambda = \frac{c}{f} = \frac{3 \times 10^8}{5 \times 10^6} = 60\,\text{m}
+    \]
+\end{enumerate}
+\newpage
+
+% ================= EXERCÍCIO 23 =================
+\section*{Exercício 23}
+\addcontentsline{toc}{section}{Exercício 23}
+
+\textbf{Enunciado:} Determine a expressão do campo elétrico que deve ser superposto a $\vec{E} = 10 \cos(\omega t - kz)\hat{a}_x\,\text{V/m}$ para obter: a) polarização linear num ângulo de $30^\circ$; b) polarização circular à esquerda.
+
+\textbf{Solução:}
+\begin{enumerate}
+    \item \textbf{Caso (a) - Linear a $30^\circ$:} 
+    Para polarização linear, as componentes devem estar em fase. A razão entre elas deve ser a tangente do ângulo:
+    \[
+    \tan(30^\circ) = \frac{E_{y0}}{E_{x0}} \implies \frac{1}{\sqrt{3}} = \frac{E_{y0}}{10} \implies E_{y0} \approx 5{,}77
+    \]
+    \textbf{Resposta:} $\vec{E}_s = 5{,}77 \cos(\omega t - kz)\hat{a}_y\,\text{V/m}$.
+    
+    \item \textbf{Caso (b) - Circular à esquerda:} 
+    A amplitude deve ser idêntica ($E_{y0} = 10$) e a defasagem temporal deve ser de $90^\circ$ (usando a função seno). Para rodar de $+x$ para $-y$ (rotação à esquerda considerando a propagação em $+z$), a componente $y$ deve iniciar com sinal negativo:
+    \textbf{Resposta:} $\vec{E}_s = -10 \text{sen}(\omega t - kz)\hat{a}_y\,\text{V/m}$.
+\end{enumerate}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 24 =================
+\section*{Exercício 24}
+\addcontentsline{toc}{section}{Exercício 24}
+
+\textbf{Enunciado:} $\vec{E} = 10 \text{sen}(3\pi \times 10^8 t - \pi z)\hat{a}_x + 10 \cos(3\pi \times 10^8 t - \pi z)\hat{a}_y\,\text{V/m}$. Determine: a) $k$ e $\omega$; b) $\vec{H}$; c) polarização.
+
+\textbf{Solução:}
+\begin{enumerate}
+    \item \textbf{Caso (a):} Dos argumentos: $\omega = 3\pi \times 10^8\,\text{rad/s}$ e $k = \pi\,\text{rad/m}$.
+    
+    \item \textbf{Caso (b):} Usamos $\eta_0 = 120\pi\,\Omega$ e $\hat{a}_H = \hat{a}_k \times \hat{a}_E$. Para propagação em $+z$:
+    A componente $\hat{a}_x$ gera campo magnético em $\hat{a}_y$.
+    A componente $\hat{a}_y$ gera campo magnético em $-\hat{a}_x$.
+    \[
+    \vec{H} = -\frac{10}{120\pi} \cos(3\pi \times 10^8 t - \pi z)\hat{a}_x + \frac{10}{120\pi} \text{sen}(3\pi \times 10^8 t - \pi z)\hat{a}_y\,\text{A/m}
+    \]
+    
+    \item \textbf{Caso (c):} Amplitudes iguais ($10$ e $10$) e defasagem de $90^\circ$ (seno e cosseno) indicam \textbf{Polarização Circular}.
+    Em $t=0, z=0$, o vetor aponta para $+y$. Em $t > 0$, gira para $+x$. Pela regra da mão direita (propagação em $+z$), o giro de $y$ para $x$ é anti-horário em relação ao polegar, caracterizando uma polarização \textbf{Circular à Esquerda}.
+\end{enumerate}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 25 =================
+\section*{Exercício 25}
+\addcontentsline{toc}{section}{Exercício 25}
+
+\textbf{Enunciado:} $\vec{E} = 3 \cos(\omega t - kz)\hat{a}_x + 6 \cos(\omega t - kz + 75^\circ)\hat{a}_y\,\text{V/m}$. Determine: a) $\vec{H}$; b) $P_m$; c) polarização.
+
+\textbf{Solução:}
+\begin{enumerate}
+    \item \textbf{Caso (a):} Calculando cada componente individualmente e dividindo por $\eta_0 = 120\pi$:
+    \[
+    \vec{H} = \frac{3}{120\pi} \left[ -2\cos(\omega t - kz + 75^\circ)\hat{a}_x + \cos(\omega t - kz)\hat{a}_y \right] \text{A/m}
+    \]
+    
+    \item \textbf{Caso (b):} A potência média é a soma das potências individuais das componentes ortogonais:
+    \[
+    P_m = \frac{3^2}{2(120\pi)} + \frac{6^2}{2(120\pi)} = \frac{9 + 36}{240\pi} = \frac{45}{240\pi} \approx 59{,}68\,\text{mW/m}^2
+    \]
+    
+    \item \textbf{Caso (c):} Amplitudes diferentes ($3 \neq 6$) e defasagem não nula ($75^\circ$) geram \textbf{Polarização Elíptica}. Como a componente $y$ está adiantada de $75^\circ$, o vetor roda de $y$ para $x$, o que corresponde à \textbf{Elíptica à Esquerda}.
+\end{enumerate}
+\newpage
+
+% ================= EXERCÍCIO 26 =================
+\section*{Exercício 26}
+\addcontentsline{toc}{section}{Exercício 26}
+
+\textbf{Enunciado:} O campo elétrico de uma onda plana propagando no vácuo é dado por $\vec{E} = 100 \text{sen}(\omega t - 2z)\hat{a}_x$, determine $\omega, \vec{H}$ e o vetor densidade de potência média.
+
+\textbf{Solução:}
+\begin{enumerate}
+    \item \textbf{Frequência angular ($\omega$):} Do argumento, $k = 2\,\text{rad/m}$. No vácuo, $v = c = 3 \times 10^8\,\text{m/s}$.
+    \[
+    \omega = k \cdot c = 2 \cdot (3 \times 10^8) = 6 \times 10^8\,\text{rad/s}
+    \]
+    
+    \item \textbf{Campo magnético ($\vec{H}$):} A onda propaga em $+z$ e $\vec{E}$ em $+x$. Logo, $\hat{a}_H = \hat{a}_z \times \hat{a}_x = \hat{a}_y$.
+    A amplitude é $H_0 = \frac{E_0}{\eta_0}$. Usando $\eta_0 = \frac{\omega\mu_0}{k}$, temos:
+    \[
+    \vec{H} = \frac{200}{\omega\mu_0} \text{sen}(\omega t - 2z)\hat{a}_y\,\text{A/m}
+    \]
+    
+    \item \textbf{Potência Média ($\vec{P}_m$):} Usando $E_0 = 100\,\text{V/m}$ e $\eta_0 \approx 120\pi\,\Omega$:
+    \[
+    P_m = \frac{100^2}{240\pi} = \frac{10000}{240\pi} \approx 13{,}26\,\text{W/m}^2
+    \]
+    Como propaga em $+z$: $\vec{P}_m = 13{,}26\,\hat{a}_z\,\text{W/m}^2$.
+\end{enumerate}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 27 =================
+\section*{Exercício 27}
+\addcontentsline{toc}{section}{Exercício 27}
+
+\textbf{Enunciado:} Onda plana de $300\,\text{MHz}$ com amplitude de $1\,\text{V/m}$ propaga na água ($\varepsilon = 78\varepsilon_0, \mu = \mu_0$). Determine: a) $v$; b) $\lambda$; c) $k$; d) $Z$; e) $\vec{E}$ instantâneo em $\hat{a}_x$ propagando em $\hat{a}_z$.
+
+\textbf{Solução:}
+\begin{enumerate}
+    \item \textbf{Caso (a) - Velocidade ($v$):}
+    \[
+    v = \frac{c}{\sqrt{\varepsilon_r}} = \frac{3 \times 10^8}{\sqrt{78}} \approx 340 \times 10^5\,\text{m/s}
+    \]
+    
+    \item \textbf{Caso (b) - Comprimento de onda ($\lambda$):}
+    \[
+    \lambda = \frac{v}{f} = \frac{33{,}96 \times 10^6}{300 \times 10^6} \approx 0{,}113\,\text{m}
+    \]
+    
+    \item \textbf{Caso (c) - Constante de propagação ($k$):}
+    \[
+    k = \frac{2\pi}{\lambda} = \frac{2\pi}{0{,}113} \approx 55{,}4\,\text{rad/m}
+    \]
+    
+    \item \textbf{Caso (d) - Impedância ($Z$):}
+    \[
+    Z = \frac{\eta_0}{\sqrt{\varepsilon_r}} = \frac{120\pi}{\sqrt{78}} \approx 42{,}7\,\Omega
+    \]
+    
+    \item \textbf{Caso (e) - Campos instantâneos:}
+    Com $\omega = 2\pi(300 \times 10^6) = 6\pi \times 10^8\,\text{rad/s}$ e $H_0 = \frac{1}{42{,}7} \approx 2{,}34 \times 10^{-2}\,\text{A/m}$:
+    \[
+    \vec{E} = 1 \text{sen}(6\pi \times 10^8 t - 55{,}4 z)\hat{a}_x\,\text{V/m}
+    \]
+    \[
+    \vec{H} = 2{,}34 \times 10^{-2} \text{sen}(6\pi \times 10^8 t - 55{,}4 z)\hat{a}_y\,\text{A/m}
+    \]
+\end{enumerate}
+\newpage
+
+% ================= EXERCÍCIO 29 =================
+\section*{Exercício 29}
+\addcontentsline{toc}{section}{Exercício 29}
+
+\textbf{Enunciado:} Deduza o relacionamento entre $TOE$ e $\Gamma$, equação (2.110).
+
+\textbf{Solução:}
+A Taxa de Onda Estacionária ($TOE$) é a razão entre o campo elétrico máximo e o mínimo numa linha ou interface com reflexão.
+O coeficiente de reflexão é $\Gamma = \frac{E_r}{E_i} \implies E_r = \Gamma E_i$.
+Os valores extremos do campo resultam da interferência construtiva e destrutiva:
+\[
+E_{max} = |E_i| + |E_r| = |E_i|(1 + |\Gamma|)
+\]
+\[
+E_{min} = |E_i| - |E_r| = |E_i|(1 - |\Gamma|)
+\]
+Por definição, $TOE = \frac{E_{max}}{E_{min}}$. Substituindo e cancelando $|E_i|$, obtemos a relação:
+\[
+TOE = \frac{1 + |\Gamma|}{1 - |\Gamma|}
+\]
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 30 =================
+\section*{Exercício 30}
+\addcontentsline{toc}{section}{Exercício 30}
+
+\textbf{Enunciado:} Deduza as equações exatas para $\alpha$ e $\beta$ em meios com perdas. Sugestão: faça $\gamma = \sqrt{A + jB}$.
+
+\textbf{Solução:}
+Partimos do quadrado da constante de propagação:
+\[
+\gamma^2 = j\omega\mu(\sigma + j\omega\varepsilon) = -\omega^2\mu\varepsilon + j\omega\mu\sigma
+\]
+Sendo $\gamma = \alpha + j\beta$, ao elevar ao quadrado temos $\gamma^2 = \alpha^2 - \beta^2 + j2\alpha\beta$. Igualando as partes reais e imaginárias:
+\begin{align}
+    \alpha^2 - \beta^2 &= -\omega^2\mu\varepsilon \quad \text{(Eq. I)}\\
+    2\alpha\beta &= \omega\mu\sigma \implies \beta = \frac{\omega\mu\sigma}{2\alpha} \quad \text{(Eq. II)}
+\end{align}
+Substituindo (Eq. II) em (Eq. I) e rearranjando, formamos uma equação biquadrada:
+\[
+4(\alpha^2)^2 + (4\omega^2\mu\varepsilon)(\alpha^2) - (\omega\mu\sigma)^2 = 0
+\]
+Resolvendo a fórmula de Bhaskara para $\alpha^2$ e extraindo a raiz:
+\[
+\alpha = \omega \sqrt{\frac{\mu\varepsilon}{2} \left[ \sqrt{1 + \left(\frac{\sigma}{\omega\varepsilon}\right)^2} - 1 \right]}
+\]
+Usando a Eq. I novamente ($\beta^2 = \alpha^2 + \omega^2\mu\varepsilon$), somamos o termo da permissividade, resultando na inversão do sinal interno:
+\[
+\beta = \omega \sqrt{\frac{\mu\varepsilon}{2} \left[ \sqrt{1 + \left(\frac{\sigma}{\omega\varepsilon}\right)^2} + 1 \right]}
+\]
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 31 =================
+\section*{Exercício 31}
+\addcontentsline{toc}{section}{Exercício 31}
+
+\textbf{Enunciado:} Deduza as equações de Maxwell para ondas planas propagando num meio com perdas.
+
+\textbf{Solução:}
+Assumindo campos na forma vetorial exponencial pura $\vec{E} = \vec{E}_0 e^{-\vec{\gamma} \cdot \vec{r}}$ e $\vec{H} = \vec{H}_0 e^{-\vec{\gamma} \cdot \vec{r}}$, o operador espacial $\nabla$ equivale a multiplicar o vetor por $-\vec{\gamma}$.
+Substituindo nas leis de Maxwell no domínio fasorial:
+\begin{enumerate}
+    \item \textbf{Faraday:} $\nabla \times \vec{E} = -j\omega\mu\vec{H} \implies -\vec{\gamma} \times \vec{E} = -j\omega\mu\vec{H} \implies \vec{\gamma} \times \vec{E} = j\omega\mu\vec{H}$
+    \item \textbf{Ampère-Maxwell:} $\nabla \times \vec{H} = (\sigma + j\omega\varepsilon)\vec{E} \implies -\vec{\gamma} \times \vec{H} = (\sigma + j\omega\varepsilon)\vec{E}$
+    \item \textbf{Gauss:} $\nabla \cdot \vec{E} = 0 \implies -\vec{\gamma} \cdot \vec{E} = 0 \implies \vec{\gamma} \perp \vec{E}$
+    \item \textbf{Gauss Magnética:} $\nabla \cdot \vec{H} = 0 \implies -\vec{\gamma} \cdot \vec{H} = 0 \implies \vec{\gamma} \perp \vec{H}$
+\end{enumerate}
+As equações diferenciais transformam-se num sistema puramente algébrico.
+\newpage
+% ================= EXERCÍCIO 32 =================
+\section*{Exercício 32}
+\addcontentsline{toc}{section}{Exercício 32}
+
+\textbf{Enunciado:} Determine a constante de atenuação para uma onda propagando num meio não magnético em $\omega = 10^7\,\text{rad/s}$, se: a) $\sigma/\varepsilon = 10^7\,\text{s}^{-1}$ e $\varepsilon_r = 4$; b) a tangente de perdas for $0{,}04$ e $\beta = 0{,}1\,\text{rad/m}$.
+
+\textbf{Solução:}
+\begin{enumerate}
+    \item \textbf{Caso (a):} A tangente de perdas é $\tan\delta = \frac{\sigma}{\omega\varepsilon} = \frac{10^7}{10^7} = 1$.
+    O termo base é $\omega\sqrt{\mu\varepsilon} = 10^7 \frac{\sqrt{4}}{3 \times 10^8} = \frac{2}{30}\,\text{rad/m}$.
+    Aplicando a fórmula exata:
+    \[
+    \alpha = \omega\sqrt{\mu\varepsilon} \sqrt{\frac{\sqrt{1 + \tan^2\delta} - 1}{2}} = \left(\frac{2}{30}\right) \sqrt{\frac{\sqrt{2} - 1}{2}} \approx 0{,}0303\,\text{Np/m}
+    \]
+    
+    \item \textbf{Caso (b):} Como $\tan\delta = 0{,}04 \ll 1$, trata-se de um bom dielétrico. Usamos a aproximação $\frac{\alpha}{\beta} \approx \frac{\tan\delta}{2}$:
+    \[
+    \alpha \approx \beta \frac{\tan\delta}{2} = 0{,}1 \times \frac{0{,}04}{2} = 0{,}002\,\text{Np/m}
+    \]
+\end{enumerate}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 33 =================
+\section*{Exercício 33}
+\addcontentsline{toc}{section}{Exercício 33}
+
+\textbf{Enunciado:} A água a $15{,}9\,\text{GHz}$ possui $\varepsilon = 50\varepsilon_0, \mu = \mu_0$ e $\sigma = 20\,\text{S/m}$. Determine: a) $\alpha$; b) $\beta$; c) $Z$; d) $\lambda$; e) diferença de fase entre os campos.
+
+\textbf{Solução:}
+Temos $\omega = 2\pi(15{,}9 \times 10^9) \approx 10^{11}\,\text{rad/s}$.
+A tangente de perdas é $\tan\delta = \frac{20}{10^{11} \times 50 \times 8{,}854 \times 10^{-12}} \approx 0{,}452$.
+O termo base $\omega\sqrt{\mu\varepsilon} \approx 2356\,\text{rad/m}$. O termo da raiz $\sqrt{1 + \tan^2\delta} \approx 1{,}097$.
+
+\begin{enumerate}
+    \item \textbf{(a) $\alpha$ e (b) $\beta$:}
+    \[
+    \alpha = 2356 \sqrt{\frac{1{,}097 - 1}{2}} \approx 522\,\text{Np/m}
+    \]
+    \[
+    \beta = 2356 \sqrt{\frac{1{,}097 + 1}{2}} \approx 2420\,\text{rad/m}
+    \]
+    
+    \item \textbf{(c) Impedância ($Z$):}
+    O módulo é $|Z| = \frac{\eta_0/\sqrt{50}}{(1{,}097)^{1/4}} \approx \frac{53{,}3}{1{,}023} \approx 51\,\Omega$.
+    A fase é $\theta_Z = \frac{1}{2} \tan^{-1}(0{,}452) \approx 12{,}2^\circ$. Logo, $Z = 51 \angle 12{,}2^\circ\,\Omega$.
+    
+    \item \textbf{(d) $\lambda$:} $\lambda = \frac{2\pi}{\beta} = \frac{2\pi}{2420} \approx 2{,}6 \times 10^{-3}\,\text{m}$.
+    
+    \item \textbf{(e) Diferença de fase:} O campo magnético atrasa-se em relação ao elétrico pelo ângulo da impedância intrínseca, ou seja, $12{,}2^\circ$.
+\end{enumerate}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 34 =================
+\section*{Exercício 34}
+\addcontentsline{toc}{section}{Exercício 34}
+
+\textbf{Enunciado:} Onda propaga-se com $\varepsilon = 4\varepsilon_0, \mu = \mu_0$ e $\sigma = 0{,}1\,\text{S/m}$ a $2{,}45\,\text{GHz}$. Determine $\alpha, \beta$ e a atenuação em dB/m.
+
+\textbf{Solução:}
+Temos $\omega \approx 1{,}539 \times 10^{10}\,\text{rad/s}$. 
+$\tan\delta = \frac{0{,}1}{1{,}539 \times 10^{10} \times 4\varepsilon_0} \approx 0{,}183$.
+Termo base $\omega\sqrt{\mu\varepsilon} \approx 102{,}6\,\text{rad/m}$ e $\sqrt{1 + \tan^2\delta} \approx 1{,}0167$.
+
+Calculando as constantes:
+\[
+\alpha = 102{,}6 \sqrt{\frac{1{,}0167 - 1}{2}} \approx 9{,}37\,\text{Np/m}
+\]
+\[
+\beta = 102{,}6 \sqrt{\frac{1{,}0167 + 1}{2}} \approx 103\,\text{rad/m}
+\]
+Para converter a atenuação de Np/m para dB/m, multiplicamos pelo fator de conversão ($20\log_{10} e \approx 8{,}686$):
+\[
+\text{Atenuação} = 9{,}37 \times 8{,}686 \approx 81{,}39\,\text{dB/m}
+\]
+\newpage
+
+% ================= EXERCÍCIO 35 =================
+\section*{Exercício 35}
+\addcontentsline{toc}{section}{Exercício 35}
+
+\textbf{Enunciado:} Um meio apresenta $\tan\delta = 10^{-3}$. Por quantos comprimentos de onda pode uma onda propagar antes que a amplitude caia a metade?
+
+\textbf{Solução:}
+Como $\tan\delta \ll 1$, trata-se de um bom dielétrico. A atenuação aproxima-se de:
+\[
+\alpha \approx \frac{\beta}{2} \tan\delta = \frac{\pi}{\lambda} \tan\delta = \frac{\pi}{\lambda} 10^{-3}
+\]
+A amplitude decai com $e^{-\alpha z}$. Para cair pela metade:
+\[
+e^{-\alpha z} = 0{,}5 \implies \alpha z = \ln(2) \approx 0{,}693
+\]
+Substituindo $\alpha$:
+\[
+\left( \frac{\pi}{\lambda} 10^{-3} \right) z = \ln(2) \implies z = \frac{\ln(2) \times 10^3}{\pi} \lambda \approx 220{,}58 \lambda
+\]
+A onda propaga-se por aproximadamente \textbf{221} comprimentos de onda.
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 36 =================
+\section*{Exercício 36}
+\addcontentsline{toc}{section}{Exercício 36}
+
+\textbf{Enunciado:} Deduza as equações para bons condutores.
+
+\textbf{Solução:}
+Para um bom condutor, $\sigma \gg \omega\varepsilon$. A constante de propagação complexa é:
+\[
+\gamma = \sqrt{j\omega\mu(\sigma + j\omega\varepsilon)} \approx \sqrt{j\omega\mu\sigma}
+\]
+Sabendo que $\sqrt{j} = \frac{1 + j}{\sqrt{2}}$:
+\[
+\gamma \approx \sqrt{\omega\mu\sigma} \left( \frac{1 + j}{\sqrt{2}} \right) = \sqrt{\frac{\omega\mu\sigma}{2}} + j\sqrt{\frac{\omega\mu\sigma}{2}}
+\]
+Logo, $\alpha = \beta = \sqrt{\pi f \mu \sigma}$.
+Para a impedância:
+\[
+Z = \sqrt{\frac{j\omega\mu}{\sigma + j\omega\varepsilon}} \approx \sqrt{\frac{j\omega\mu}{\sigma}} = \sqrt{\frac{\omega\mu}{\sigma}} \angle 45^\circ
+\]
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 37 =================
+\section*{Exercício 37}
+\addcontentsline{toc}{section}{Exercício 37}
+
+\textbf{Enunciado:} Campo magnético num meio ($\varepsilon = 9\varepsilon_0, \sigma = 10^{-4}\,\text{S/m}$) é $\vec{H} = 10^{-6} (\hat{a}_y + j2\hat{a}_z) e^{-\alpha x} e^{-j\beta x}$ em $1\,\text{GHz}$. Determine: $\vec{E}$, $\vec{P}_m$, $\beta, v_f, \lambda, \alpha, \delta$.
+
+\textbf{Solução:}
+Em $1\,\text{GHz}$, $\tan\delta \approx 2 \times 10^{-4}$ (bom dielétrico). Impedância intrínseca real $\eta \approx 125{,}66\,\Omega$.
+\begin{itemize}
+    \item \textbf{Parâmetros:} $\beta \approx 62{,}83\,\text{rad/m}$; $v_f = 10^8\,\text{m/s}$; $\lambda = 0{,}1\,\text{m}$; $\alpha \approx 6{,}28 \times 10^{-3}\,\text{Np/m}$; $\delta = 1/\alpha \approx 159{,}2\,\text{m}$.
+    \item \textbf{Campo Elétrico:} $\vec{E} = -\eta (\hat{a}_x \times \vec{H}) = (j251{,}3\,\hat{a}_y - 125{,}66\,\hat{a}_z) \times 10^{-6}\,\text{V/m}$.
+    \item \textbf{Potência Média:} $\vec{P}_m = \frac{1}{2} \text{Re}(\vec{E} \times \vec{H}^*) e^{-2\alpha x} \approx 314 \times 10^{-12} e^{-2\alpha x} \hat{a}_x\,\text{W/m}^2$.
+\end{itemize}
+\newpage
+
+% ================= EXERCÍCIO 38 =================
+\section*{Exercício 38}
+\addcontentsline{toc}{section}{Exercício 38}
+
+\textbf{Enunciado:} Terra úmida, em $1\,\text{MHz}$ tem $\varepsilon=4\varepsilon_0, \mu=\mu_0$ e $\sigma=0{,}1\,\text{S/m}$. A intensidade do campo $\vec{E}$ incidente é $1 \times 10^{-2}\,\text{V/m}$. Determine: a) distância para atenuação específica; b) atenuação em dB; c) $\lambda$; d) $v_f$; e) $Z$.
+
+\textbf{Solução:}
+Em $1\,\text{MHz}$, $\omega = 2\pi \times 10^6\,\text{rad/s}$. A tangente de perdas é $\tan\delta = \frac{\sigma}{\omega\varepsilon} \approx 449$.
+Como $\tan\delta \gg 1$, comporta-se como um \textbf{bom condutor}.
+
+Usando as aproximações para bons condutores:
+\[
+\alpha = \beta = \sqrt{\pi f \mu \sigma} = \sqrt{\pi \times 10^6 \times 4\pi \times 10^{-7} \times 0{,}1} \approx 0{,}6283\,\text{Np/m (ou rad/m)}
+\]
+\begin{enumerate}
+    \item \textbf{(c) Comprimento de onda:} $\lambda = \frac{2\pi}{\beta} = \frac{2\pi}{0{,}2\pi} = \mathbf{10\,\text{m}}$.
+    \item \textbf{(d) Velocidade de fase:} $v_f = \frac{\omega}{\beta} = \frac{2\pi \times 10^6}{0{,}2\pi} = \mathbf{10^7\,\text{m/s}}$.
+    \item \textbf{(e) Impedância:} $Z = \sqrt{\frac{\omega\mu}{\sigma}} \angle 45^\circ = \sqrt{8\pi^2} \angle 45^\circ \approx \mathbf{8{,}88 \angle 45^\circ\,\Omega}$.
+    \item \textbf{(a) e (b) Atenuação e Distância:} Se a atenuação for $8{,}68\,\text{dB}$ (equivalente a $1\,\text{Np}$), $\alpha z = 1$, logo a distância é $z = 1/0{,}6283 \approx 1{,}59\,\text{m}$.
+\end{enumerate}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 39 =================
+\section*{Exercício 39}
+\addcontentsline{toc}{section}{Exercício 39}
+
+\textbf{Enunciado:} O oceano possui $\varepsilon = 81\varepsilon_0, \mu=\mu_0, \sigma = 4\,\text{S/m}$ em $f = 10^4\,\text{Hz}$. Determine: a) constante de propagação; b) velocidade de fase; c) profundidade de penetração.
+
+\textbf{Solução:}
+Avaliando o meio: $\omega = 2\pi \times 10^4\,\text{rad/s}$ e $\tan\delta = \frac{4}{\omega(81\varepsilon_0)} \approx 88800 \gg 1$. É um \textbf{excelente condutor}.
+
+\begin{enumerate}
+    \item \textbf{(a) Constante de propagação ($\gamma$):}
+    \[
+    \alpha = \beta = \sqrt{\pi \times 10^4 \times 4\pi \times 10^{-7} \times 4} \approx 0{,}397\,\text{Np/m}
+    \]
+    \[
+    \gamma = \alpha + j\beta = \mathbf{0{,}397 + j0{,}397\,\text{m}^{-1}}
+    \]
+    \item \textbf{(b) Velocidade de fase ($v_f$):}
+    \[
+    v_f = \frac{\omega}{\beta} = \frac{2\pi \times 10^4}{0{,}397} \approx \mathbf{1{,}583 \times 10^5\,\text{m/s}}
+    \]
+    \item \textbf{(c) Profundidade de penetração ($\delta$):}
+    \[
+    \delta = \frac{1}{\alpha} = \frac{1}{0{,}397} \approx \mathbf{2{,}516\,\text{m}}
+    \]
+\end{enumerate}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 40 =================
+\section*{Exercício 40}
+\addcontentsline{toc}{section}{Exercício 40}
+
+\textbf{Enunciado:} A água a $15{,}9\,\text{GHz}$ possui $\varepsilon = 50\varepsilon_0, \mu = \mu_0$ e $\sigma = 20\,\text{S/m}$. Determine os parâmetros da onda.
+
+\textbf{Solução:}
+Este exercício apresenta exatamente os mesmos dados e questões do \textbf{Exercício 33}. Recorrendo aos cálculos previamente efetuados:
+\begin{itemize}
+    \item \textbf{a)} Fator de atenuação: $\alpha \approx 522\,\text{Np/m}$.
+    \item \textbf{b)} Fator de fase: $\beta \approx 2420\,\text{rad/m}$.
+    \item \textbf{c)} Impedância intrínseca: $Z \approx 51 \angle 12{,}2^\circ\,\Omega$.
+    \item \textbf{d)} Comprimento de onda: $\lambda \approx 2{,}6 \times 10^{-3}\,\text{m}$.
+    \item \textbf{e)} Ângulo de fase entre os campos: $12{,}2^\circ$.
+\end{itemize}
+\newpage
+% ================= EXERCÍCIO 41 =================
+\section*{Exercício 41}
+\addcontentsline{toc}{section}{Exercício 41}
+
+\textbf{Enunciado:} Campo $\vec{E} = 50 e^{-\alpha z} \cos(\omega t - \beta z)\hat{a}_y$ num meio ($\varepsilon = 18{,}5\varepsilon_0, \mu = 800\mu_0, \sigma = 1\,\text{S/m}$) a $f = 1\,\text{GHz}$. Determine: a) $\alpha$; b) $\beta$; c) $Z$; d) $v_f$; e) $v$; f) $\vec{H}$.
+
+\textbf{Solução:}
+Avaliando $\tan\delta = \frac{\sigma}{\omega\varepsilon} = \frac{1}{2\pi \times 10^9 \times 18{,}5 \times 8{,}854 \times 10^{-12}} \approx 0{,}971$. Como $\tan\delta \approx 1$, usamos as fórmulas exatas.
+Termo base: $\omega\sqrt{\mu\varepsilon} \approx 2548\,\text{rad/m}$. Termo da raiz: $\sqrt{1 + 0{,}971^2} \approx 1{,}394$.
+
+\begin{enumerate}
+    \item \textbf{a) Atenuação e b) Fase:}
+    \[
+    \alpha = 2548 \sqrt{\frac{1{,}394 - 1}{2}} \approx \mathbf{1{,}13 \times 10^3\,\text{Np/m}} \quad \text{e} \quad \beta = 2548 \sqrt{\frac{1{,}394 + 1}{2}} \approx \mathbf{2{,}78 \times 10^3\,\text{rad/m}}
+    \]
+    \item \textbf{c) Impedância Intrínseca:}
+    $|Z| = \frac{\sqrt{800\mu_0 / 18{,}5\varepsilon_0}}{\sqrt{1{,}394}} \approx \frac{2479}{1{,}18} \approx \mathbf{2099\,\Omega}$. 
+    Fase: $\theta_Z = \frac{1}{2} \tan^{-1}(0{,}971) \approx \mathbf{22{,}09^\circ}$.
+    \item \textbf{d) $v_f$ e e) $v$:}
+    \[
+    v_f = \frac{\omega}{\beta} \approx \mathbf{2{,}26 \times 10^6\,\text{m/s}} \quad \text{e} \quad v = \frac{1}{\sqrt{\mu\varepsilon}} \approx \mathbf{2{,}466 \times 10^6\,\text{m/s}}
+    \]
+    \item \textbf{f) Campo Magnético:} 
+    A direção é $\hat{a}_z \times \hat{a}_y = -\hat{a}_x$. A amplitude é $50/2099 \approx 0{,}0238\,\text{A/m}$. Atraso de $22{,}09^\circ \approx 0{,}386\,\text{rad}$.
+    \[
+    \vec{H} = -2{,}38 \times 10^{-2} e^{-\alpha z} \cos(\omega t - \beta z - 0{,}386) \hat{a}_x\,\text{A/m}
+    \]
+\end{enumerate}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 42 =================
+\section*{Exercício 42}
+\addcontentsline{toc}{section}{Exercício 42}
+
+\textbf{Enunciado:} Deduza as expressões aproximadas para um bom dielétrico usando expansão binomial.
+
+\textbf{Solução:}
+Para um bom dielétrico, $\frac{\sigma}{\omega\varepsilon} \ll 1$. Partimos de $\gamma = j\omega\sqrt{\mu\varepsilon}\sqrt{1 - j\frac{\sigma}{\omega\varepsilon}}$.
+Aplicando $(1 + x)^{1/2} \approx 1 + \frac{x}{2} - \frac{x^2}{8}$:
+\[
+\gamma \approx j\omega\sqrt{\mu\varepsilon} \left[ 1 - j\frac{\sigma}{2\omega\varepsilon} + \frac{\sigma^2}{8\omega^2\varepsilon^2} \right] = \frac{\sigma}{2}\sqrt{\frac{\mu}{\varepsilon}} + j\omega\sqrt{\mu\varepsilon}\left(1 + \frac{\sigma^2}{8\omega^2\varepsilon^2}\right)
+\]
+Separando as partes:
+\[
+\alpha \approx \frac{\sigma}{2}\sqrt{\frac{\mu}{\varepsilon}} \quad \text{e} \quad \beta \approx \omega\sqrt{\mu\varepsilon}
+\]
+Para a impedância, usamos $(1+x)^{-1/2} \approx 1 - x/2$:
+\[
+Z = \sqrt{\frac{\mu}{\varepsilon}} \left(1 - j\frac{\sigma}{\omega\varepsilon}\right)^{-1/2} \approx \sqrt{\frac{\mu}{\varepsilon}} \left(1 + j\frac{\sigma}{2\omega\varepsilon}\right)
+\]
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 43 =================
+\section*{Exercício 43}
+\addcontentsline{toc}{section}{Exercício 43}
+
+\textbf{Enunciado:} Classifique o meio do exercício 34, calcule as constantes exatas e aproximadas, e o erro relativo.
+
+\textbf{Solução:}
+Como $\tan\delta \approx 0{,}183$ (entre $0{,}01$ e $1$), é um \textbf{dielétrico com baixas perdas}.
+\begin{itemize}
+    \item \textbf{Valores Aproximados:} $\alpha \approx 9{,}425\,\text{Np/m}$, $\beta \approx 102{,}6\,\text{rad/m}$. $Z \approx 188{,}5 + j17{,}25\,\Omega$.
+    \item \textbf{Valores Exatos (Ex 34):} $\alpha = 9{,}37\,\text{Np/m}$, $\beta = 103\,\text{rad/m}$. $Z \approx 186{,}1 + j16{,}88\,\Omega$.
+    \item \textbf{Erros Relativos:}
+    Para $\alpha$: $\frac{|9{,}425 - 9{,}37|}{9{,}37} \approx \mathbf{0{,}58\%}$ \quad|\quad Para $\beta$: $\frac{|102{,}6 - 103|}{103} \approx \mathbf{0{,}38\%}$
+\end{itemize}
+\newpage
+
+% ================= EXERCÍCIO 44 =================
+\section*{Exercício 44}
+\addcontentsline{toc}{section}{Exercício 44}
+
+\textbf{Enunciado:} Demonstre que o vetor de Poynting da potência transmitida é $\vec{P}_m^t = (1 - |\Gamma|^2)\vec{P}_m^i$. Interprete.
+
+\textbf{Solução:}
+Sabemos que $P_m^i = \frac{E_0^2}{2\eta_1}$ e $P_m^t = \frac{E_t^2}{2\eta_2}$. Como $E_t = \tau E_0$:
+\[
+P_m^t = \frac{(\tau E_0)^2}{2\eta_2} = \tau^2 \left( \frac{\eta_1}{\eta_2} \right) P_m^i
+\]
+Para incidência normal, $\Gamma = \frac{\eta_2 - \eta_1}{\eta_2 + \eta_1}$ e $\tau = \frac{2\eta_2}{\eta_2 + \eta_1}$.
+Desenvolvendo o fator multiplicador:
+\[
+\tau^2 \frac{\eta_1}{\eta_2} = \frac{4\eta_2^2}{(\eta_2 + \eta_1)^2} \frac{\eta_1}{\eta_2} = \frac{4\eta_1\eta_2}{(\eta_2 + \eta_1)^2}
+\]
+Calculando $1 - |\Gamma|^2$:
+\[
+1 - \Gamma^2 = 1 - \frac{(\eta_2 - \eta_1)^2}{(\eta_2 + \eta_1)^2} = \frac{(\eta_2 + \eta_1)^2 - (\eta_2 - \eta_1)^2}{(\eta_2 + \eta_1)^2} = \frac{4\eta_1\eta_2}{(\eta_2 + \eta_1)^2}
+\]
+Como as expressões são idênticas, fica provado que $\vec{P}_m^t = (1 - |\Gamma|^2)\vec{P}_m^i$. 
+\textbf{Interpretação:} Esta equação representa a Conservação de Energia. A potência incidente ($100\%$) divide-se entre a fração refletida ($|\Gamma|^2$) e a transmitida ($1 - |\Gamma|^2$).
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 45 =================
+\section*{Exercício 45}
+\addcontentsline{toc}{section}{Exercício 45}
+
+\textbf{Enunciado:} Encontre a fase e a amplitude do campo elétrico na profundidade de $0{,}1\,\text{mm}$ numa chapa de cobre. $E_0 = 1\,\text{V/m}, f = 1\,\text{GHz}$.
+
+\textbf{Solução:}
+A $1\,\text{GHz}$, o cobre é um excelente condutor ($\sigma \gg \omega\varepsilon$).
+\[
+\alpha = \beta = \sqrt{\pi f \mu \sigma} = \sqrt{\pi \times 10^9 \times 4\pi \times 10^{-7} \times 5{,}8 \times 10^7} \approx 478514\,\text{Np/m}
+\]
+A fase adquirida em $z = 0{,}1\,\text{mm}$ é $\beta z$:
+\[
+\text{Fase} = 478514 \times 10^{-4} \approx 47{,}85\,\text{rad} \approx 2741{,}6^\circ
+\]
+Retirando os múltiplos de $360^\circ$ (7 ciclos completos = $2520^\circ$):
+\[
+\text{Fase efetiva} = 2741{,}6^\circ - 2520^\circ \approx 221{,}6^\circ \quad \text{(O gabarito exato é } 224{,}468^\circ \text{)}
+\]
+A amplitude decai com $e^{-\alpha z}$:
+\[
+E = 1 \cdot e^{-47{,}85} \approx 1{,}65 \times 10^{-21}\,\text{V/m} \quad \text{(Compatível com os } 1{,}575 \times 10^{-21} \text{ do gabarito)}
+\]
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 46 =================
+\section*{Exercício 46}
+\addcontentsline{toc}{section}{Exercício 46}
+
+\textbf{Enunciado:} Incidência normal a $10\,\text{GHz}$. Meio 1: $\varepsilon_1 = 2\varepsilon_0, \sigma_1 = 0{,}2$. Meio 2: $\varepsilon_2 = 4\varepsilon_0, \sigma_2 = 0{,}1$. Encontre as grandezas principais.
+
+\textbf{Solução:}
+Aplicando as fórmulas complexas para $\gamma$ e $Z$ aos dois meios:
+\begin{itemize}
+    \item \textbf{Meio 1:} $\gamma_1 = 299 \angle 84{,}9^\circ\,\text{m}^{-1}$ e $Z_1 = 264{,}46 \angle 5{,}10^\circ\,\Omega$.
+    \item \textbf{Meio 2:} $\gamma_2 = 419{,}4 \angle 88{,}59^\circ\,\text{m}^{-1}$ e $Z_2 = 188{,}26 \angle 1{,}43^\circ\,\Omega$.
+\end{itemize}
+Coeficiente de reflexão $\Gamma = \frac{Z_2 - Z_1}{Z_2 + Z_1} \implies |\Gamma| \approx 0{,}17$.
+Amplitudes refletidas:
+\[
+E_r = 0{,}17 \times 1 = \mathbf{0{,}17\,\text{V/m}} \quad \text{e} \quad H_r = \frac{0{,}17}{264{,}46} \approx \mathbf{0{,}64\,\text{mA/m}}
+\]
+Coeficiente de transmissão $\tau = \frac{2Z_2}{Z_2 + Z_1} \implies |\tau| \approx 0{,}8321$.
+Amplitudes transmitidas:
+\[
+E_t = 0{,}8321 \times 1 \approx \mathbf{0{,}832\,\text{V/m}} \quad \text{e} \quad H_t = \frac{0{,}8321}{188{,}26} \approx \mathbf{0{,}00442\,\text{A/m}}
+\]
+\newpage
+
+% ================= EXERCÍCIO 47 =================
+\section*{Exercício 47}
+\addcontentsline{toc}{section}{Exercício 47}
+
+\textbf{Enunciado:} Repita o problema anterior na freqüência de 1 GHz.
+
+\textbf{Solução:}
+Com $f = 1$ GHz ($\omega = 2\pi \times 10^9$ rad/s), as perdas tornam-se muito mais significativas. Aplicando as fórmulas complexas exatas:
+\begin{itemize}
+    \item \textbf{Meio 1:} $\gamma_1 = 42{,}5 \angle 59{,}53^\circ$, $Z_1 = 185{,}77 \angle 30{,}47^\circ\,\Omega$.
+    \item \textbf{Meio 2:} $\gamma_2 = 43{,}87 \angle 77{,}88^\circ$, $Z_2 = 180{,}0 \angle 12{,}11^\circ\,\Omega$.
+\end{itemize}
+Cálculo de $\Gamma$:
+\[
+\Gamma = \frac{Z_2 - Z_1}{Z_2 + Z_1} \implies |\Gamma| \approx 0{,}16
+\]
+Amplitudes refletidas:
+\[
+E_r = 0{,}16 \times 1 = \mathbf{0{,}16\,\text{V/m}} \quad \text{e} \quad H_r = \frac{0{,}16}{185{,}77} \approx \mathbf{8{,}6\,\text{mA/m}}
+\]
+Cálculo de $\tau$: $\tau = 1 + \Gamma \implies |\tau| \approx 1{,}0$.
+Amplitudes transmitidas:
+\[
+E_t = 1{,}0 \times 1 = \mathbf{1{,}0\,\text{V/m}} \quad \text{e} \quad H_t = \frac{1{,}0}{180{,}0} \approx \mathbf{0{,}00555\,\text{A/m}}
+\]
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 48 =================
+\section*{Exercício 48}
+\addcontentsline{toc}{section}{Exercício 48}
+
+\textbf{Enunciado:} Onda $\vec{E}_i = 20 e^{-j0{,}1\pi z} \hat{a}_x$ a 10 MHz incide num condutor perfeito em $z=0$. Determine em $z=-2$ m: a) $\vec{E}_{tot}$; b) $\vec{H}_{tot}$; c) $\vec{J}_s$.
+
+\textbf{Solução:}
+Para reflexão total num condutor perfeito, $\Gamma = -1$.
+A impedância do meio 1 é $\eta_1 = 80\pi \approx 251{,}3\,\Omega$.
+\begin{enumerate}
+    \item \textbf{(a) $\vec{E}_{tot}$:}
+    \[
+    E_{tot} = 20 e^{-j0{,}1\pi z} - 20 e^{+j0{,}1\pi z} = -j40 \sin(0{,}1\pi z)
+    \]
+    No domínio do tempo e em $z = -2$:
+    \[
+    \vec{E}_{tot}(-2, t) = -40 \sin(-0{,}2\pi) \cos(\omega t - 90^\circ) \hat{a}_x \approx \mathbf{-23{,}5 \sin(2\pi \times 10^7 t) \hat{a}_x\,\text{V/m}}
+    \]
+    \item \textbf{(b) $\vec{H}_{tot}$:}
+    O campo reflete em fase. $H_0 = 20/80\pi = 1/4\pi$.
+    \[
+    H_{tot} = \frac{1}{4\pi} (e^{-j0{,}1\pi z} + e^{+j0{,}1\pi z}) = \frac{1}{2\pi} \cos(0{,}1\pi z)
+    \]
+    Em $z = -2$:
+    \[
+    \vec{H}_{tot}(-2, t) = \frac{1}{2\pi} \cos(-0{,}2\pi) \cos(\omega t) \hat{a}_y \approx \mathbf{0{,}1288 \cos(2\pi \times 10^7 t) \hat{a}_y\,\text{A/m}}
+    \]
+    \item \textbf{(c) $\vec{J}_s$ em $z=0$:}
+    \[
+    \vec{J}_s = (-\hat{a}_z) \times \vec{H}_{tot}(0, t) = (-\hat{a}_z) \times \left( \frac{1}{2\pi} \cos(\omega t) \hat{a}_y \right) = \mathbf{0{,}1592 \cos(2\pi \times 10^7 t) \hat{a}_x\,\text{A/m}}
+    \]
+\end{enumerate}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 49 =================
+\section*{Exercício 49}
+\addcontentsline{toc}{section}{Exercício 49}
+
+\textbf{Enunciado:} Onda $\vec{E}_i = 250 e^{-j k_1 z} \hat{a}_x$ a 300 MHz. Meio 1: $\varepsilon_1 = 2{,}25\varepsilon_0, \mu_1=\mu_0$. Meio 2: $\varepsilon_2 = 4\varepsilon_0, \mu_2 = 4\mu_0, \sigma_2 = 0$. Determine: a) $\vec{E}_r$; b) $\vec{E}_t$; c) $P_r / P_i$.
+
+\textbf{Solução:}
+As impedâncias são $\eta_1 = 120\pi / 1{,}5 = 80\pi\,\Omega$ e $\eta_2 = 120\pi \sqrt{4/4} = 120\pi\,\Omega$.
+\[
+\Gamma = \frac{120\pi - 80\pi}{120\pi + 80\pi} = 0{,}2 \quad \text{e} \quad \tau = 1 + 0{,}2 = 1{,}2
+\]
+Os números de onda são $k_1 = 3\pi\,\text{rad/m}$ e $k_2 = 8\pi\,\text{rad/m}$.
+\begin{enumerate}
+    \item \textbf{(a) $\vec{E}_r$:}
+    \[
+    E_r = 0{,}2 \times 250 = 50\,\text{V/m} \implies \vec{E}_r = \mathbf{50 e^{+j3\pi z} \hat{a}_x\,\text{V/m}}
+    \]
+    \item \textbf{(b) $\vec{E}_t$:}
+    \[
+    E_t = 1{,}2 \times 250 = 300\,\text{V/m} \implies \vec{E}_t = \mathbf{300 e^{-j8\pi z} \hat{a}_x\,\text{V/m}}
+    \]
+    \item \textbf{(c) $P_r / P_i$:}
+    \[
+    \frac{P_r}{P_i} = |\Gamma|^2 = 0{,}2^2 = \mathbf{0{,}04}
+    \]
+\end{enumerate}
+\newpage
+
+% ================= EXERCÍCIO 50 =================
+\section*{Exercício 50}
+\addcontentsline{toc}{section}{Exercício 50}
+
+\textbf{Enunciado:} Onda plana uniforme incide normalmente do meio 1 ($\varepsilon_1 = 8\varepsilon_0, \mu_1 = 4\mu_0, \sigma_1 = 0$) para o meio 2 ($\varepsilon_2 = 2\varepsilon_0, \mu_2 = 2\mu_0, \sigma_2 = 0$) em $z=0$. Frequência de 2500 MHz. Determine: a) $\Gamma$; b) $TOE$.
+
+\textbf{Solução:}
+As impedâncias intrínsecas (meios sem perdas) são:
+\[
+\eta_1 = \sqrt{\frac{4\mu_0}{8\varepsilon_0}} = \frac{120\pi}{\sqrt{2}} \approx 266{,}57\,\Omega \quad \text{e} \quad \eta_2 = \sqrt{\frac{2\mu_0}{2\varepsilon_0}} = 120\pi \approx 377\,\Omega
+\]
+\begin{enumerate}
+    \item \textbf{(a) Coeficiente de reflexão ($\Gamma$):}
+    \[
+    \Gamma = \frac{\eta_2 - \eta_1}{\eta_2 + \eta_1} = \frac{1 - 1/\sqrt{2}}{1 + 1/\sqrt{2}} = \frac{\sqrt{2} - 1}{\sqrt{2} + 1} \approx \mathbf{0{,}17}
+    \]
+    \item \textbf{(b) Taxa de Onda Estacionária ($TOE$):}
+    \[
+    TOE = \frac{1 + |\Gamma|}{1 - |\Gamma|} = \frac{1 + 0{,}1715}{1 - 0{,}1715} \approx \mathbf{1{,}41}
+    \]
+\end{enumerate}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 51 =================
+\section*{Exercício 51}
+\addcontentsline{toc}{section}{Exercício 51}
+
+\textbf{Enunciado:} Onda a 20 MHz no ar incide em material ($\varepsilon = 2{,}25\varepsilon_0, \mu = 6{,}25\mu_0, \sigma = 0$). Amplitude elétrica $E_i = 30000$ V/m. Determine amplitude máxima do campo magnético total e a menor distância a partir da interface.
+
+\textbf{Solução:}
+Impedâncias: $\eta_1 = 120\pi\,\Omega$ e $\eta_2 = 120\pi \sqrt{6{,}25/2{,}25} = 120\pi(5/3) = 200\pi\,\Omega$.
+Coeficiente de reflexão:
+\[
+\Gamma = \frac{200\pi - 120\pi}{200\pi + 120\pi} = \frac{80}{320} = 0{,}25
+\]
+Amplitude do campo magnético incidente: $H_{i0} = \frac{30000}{120\pi} \approx 79{,}577$ A/m.
+Amplitude máxima do campo magnético total:
+\[
+H_{max} = H_{i0}(1 + |\Gamma|) = 79{,}577 \times 1{,}25 \approx \mathbf{99{,}47\,\text{A/m}}
+\]
+O máximo de $H$ ocorre nos mínimos de $E$. Como $\Gamma > 0$, o máximo de $E$ (e mínimo de $H$) ocorre na interface $z=0$. A distância para o próximo pico de $H$ é $\lambda/4$. No ar, $\lambda = c/f = 15$ m.
+\[
+d = \frac{15}{4} = \mathbf{3{,}75\,\text{m}}
+\]
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 52 =================
+\section*{Exercício 52}
+\addcontentsline{toc}{section}{Exercício 52}
+
+\textbf{Enunciado:} Onda no ar incide normalmente num grande meio condutor com impedância $Z_2 = (10 + j10)$ m$\Omega$. Determine a razão $H_2/H_1$ exata e o erro percentual da aproximação $H_2 \approx 2H_1$.
+
+\textbf{Solução:}
+Temos $\eta_1 = 120\pi \approx 377\,\Omega$ e $Z_2 = 0{,}01 + j0{,}01\,\Omega$.
+A razão transmitida é $H_2/H_1 = 1 - \Gamma = \frac{2\eta_1}{Z_2 + \eta_1} = \frac{2}{1 + Z_2/\eta_1}$.
+Sendo $\delta = Z_2/\eta_1 \approx 2{,}65 \times 10^{-5} + j2{,}65 \times 10^{-5}$:
+\[
+\left|\frac{H_2}{H_1}\right| \approx \frac{2}{|1 + \delta|} \approx 2(1 - \text{Re}(\delta)) = 2 - 2(0{,}0000265) \approx \mathbf{1{,}99995}
+\]
+O erro da aproximação $2H_1$ é:
+\[
+\text{Erro} = \frac{|1{,}999947 - 2|}{1{,}999947} \times 100\% \approx \mathbf{0{,}0026\%}
+\]
+\newpage
+
+% ================= EXERCÍCIO 53 =================
+\section*{Exercício 53}
+\addcontentsline{toc}{section}{Exercício 53}
+
+\textbf{Enunciado:} Onda plana com $P_m = 100\,\text{W/m}^2$, $f = 500\,\text{MHz}$, incide normalmente do ar na superfície do mar ($\varepsilon = 80\varepsilon_0, \sigma = 5\,\text{S/m}$). $\vec{E}$ em $+x$ e propaga em $+z$. Determine os campos incidentes, refletidos, transmitidos e a potência transmitida.
+
+\textbf{Solução:}
+Ar: $\eta_1 = 120\pi \approx 377\,\Omega$, $k_1 = \omega/c \approx 10{,}47\,\text{rad/m}$. $E_{i0} = \sqrt{2\eta_1 P_m} \approx 274{,}59\,\text{V/m}$.
+Mar: $Z_2 \approx 22{,}6 \angle 41{,}5^\circ\,\Omega$. $\gamma_2 \approx 36{,}89 + j123{,}27\,\text{m}^{-1}$.
+Coeficientes: $\Gamma = \frac{Z_2 - \eta_1}{Z_2 + \eta_1} \approx 0{,}887 \angle 175{,}54^\circ$. $\tau = 1 + \Gamma \approx 0{,}134 \angle 30{,}9^\circ$.
+
+\begin{enumerate}
+    \item \textbf{(a) Incidentes:} 
+    $\vec{E}_i = 274{,}59 \cos(\pi \times 10^9 t - 10{,}47 z)\hat{a}_x\,\text{V/m}$.
+    $\vec{H}_i = 0{,}7283 \cos(\pi \times 10^9 t - 10{,}47 z)\hat{a}_y\,\text{A/m}$.
+    \item \textbf{(b) Refletidos:} Amplitude $E_r = 0{,}887 \times 274{,}59 \approx 243{,}67$. A propagação inverte ($-z$).
+    $\vec{E}_r = 243{,}67 \cos(\pi \times 10^9 t + 10{,}47 z + 175{,}54^\circ)\hat{a}_x\,\text{V/m}$.
+    $\vec{H}_r = -0{,}6464 \cos(\pi \times 10^9 t + 10{,}47 z + 175{,}54^\circ)\hat{a}_y\,\text{A/m}$.
+    \item \textbf{(c) Transmitidos:} Amplitude $E_t = 0{,}134 \times 274{,}59 \approx 36{,}89$. Adiciona-se o fator de atenuação.
+    $\vec{E}_t = 36{,}89 e^{-36{,}89 z} \cos(\pi \times 10^9 t - 123{,}27 z + 30{,}91^\circ)\hat{a}_x\,\text{V/m}$.
+    $\vec{H}_t = 1{,}37 e^{-36{,}89 z} \cos(\pi \times 10^9 t - 123{,}27 z - 10{,}59^\circ)\hat{a}_y\,\text{A/m}$.
+    \item \textbf{(d) Potência Transmitida:} $P_m^t = (1 - |\Gamma|^2) P_m^i = (1 - 0{,}887^2) 100 \approx \mathbf{21{,}25\,\text{W/m}^2}$.
+\end{enumerate}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 54 =================
+\section*{Exercício 54}
+\addcontentsline{toc}{section}{Exercício 54}
+
+\textbf{Enunciado:} Incidência oblíqua a $36{,}87^\circ$ entre dielétricos ($\varepsilon_1 = 6{,}25\varepsilon_0, \varepsilon_2 = 15{,}21\varepsilon_0$). Obtenha $\Gamma$ e $T$ para ambas as polarizações, compare com incidência normal e ache $\theta_t$.
+
+\textbf{Solução:}
+Índices de refração: $n_1 = 2{,}5, n_2 = 3{,}9$. Impedâncias: $\eta_1 = \eta_0/2{,}5, \eta_2 = \eta_0/3{,}9$.
+Snell: $2{,}5 \text{sen}(36{,}87^\circ) = 3{,}9 \text{sen}\theta_t \implies \text{sen}\theta_t = 1{,}5/3{,}9 \implies \theta_t \approx \mathbf{22{,}62^\circ}$.
+Cossenos: $\cos\theta_i = 0{,}8$, $\cos\theta_t \approx 0{,}923$.
+\begin{itemize}
+    \item \textbf{Perpendicular:} $\Gamma_{\perp} = \frac{\eta_2 \cos\theta_i - \eta_1 \cos\theta_t}{\eta_2 \cos\theta_i + \eta_1 \cos\theta_t} \approx \mathbf{-0{,}2857}$. $T_{\perp} = 1 + \Gamma_{\perp} \approx \mathbf{0{,}7143}$.
+    \item \textbf{Paralela:} $\Gamma_{\parallel} = \frac{\eta_2 \cos\theta_t - \eta_1 \cos\theta_i}{\eta_2 \cos\theta_t + \eta_1 \cos\theta_i} \approx \mathbf{-0{,}1497}$. $T_{\parallel} = (1 + \Gamma_{\parallel})\frac{\cos\theta_i}{\cos\theta_t} \approx \mathbf{0{,}7370}$.
+    \item \textbf{Normal ($\theta_i=0$):} $\Gamma_n = \frac{\eta_2 - \eta_1}{\eta_2 + \eta_1} \approx \mathbf{-0{,}21875}$. $T_n = 1 + \Gamma_n \approx \mathbf{0{,}78125}$.
+\end{itemize}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 55 =================
+\section*{Exercício 55}
+\addcontentsline{toc}{section}{Exercício 55}
+
+\textbf{Enunciado:} Onda incide a $\theta_i = 30^\circ$ (polarização perpendicular) entre meios sem perdas ($v_1 = c/2, v_2 = 2c/3$). Determine $\Gamma_{\perp}$ e $T_{\perp}$.
+
+\textbf{Solução:}
+Índices: $n_1 = 2$ e $n_2 = 1{,}5$. Impedâncias: $\eta_1 = \eta_0/2$ e $\eta_2 = \eta_0/1{,}5$.
+Snell: $2 \text{sen}(30^\circ) = 1{,}5 \text{sen}\theta_t \implies \text{sen}\theta_t = 2/3$. Logo, $\cos\theta_t = \sqrt{5}/3 \approx 0{,}745$.
+Como $\cos\theta_i = \sqrt{3}/2 \approx 0{,}866$:
+\[
+\Gamma_{\perp} = \frac{\eta_2 \cos\theta_i - \eta_1 \cos\theta_t}{\eta_2 \cos\theta_i + \eta_1 \cos\theta_t} = \frac{(2/3)(\sqrt{3}/2) - (1/2)(\sqrt{5}/3)}{(2/3)(\sqrt{3}/2) + (1/2)(\sqrt{5}/3)} = \frac{2\sqrt{3} - \sqrt{5}}{2\sqrt{3} + \sqrt{5}} \approx \mathbf{0{,}2154}
+\]
+\[
+T_{\perp} = 1 + \Gamma_{\perp} = 1 + 0{,}2154 = \mathbf{1{,}2154}
+\]
+\newpage
+
+% ================= EXERCÍCIO 56 =================
+\section*{Exercício 56}
+\addcontentsline{toc}{section}{Exercício 56}
+
+\textbf{Enunciado:} Onda incide a $\theta_i = 30^\circ$ (polarização paralela) entre meios sem perdas ($v_1 = c/2, v_2 = 2c/3$). Determine $\Gamma_{\parallel}$ e $T_{\parallel}$.
+
+\textbf{Solução:}
+Usando os mesmos parâmetros do exercício anterior: $n_1 = 2$, $n_2 = 1{,}5$. $\eta_1 = \eta_0/2$, $\eta_2 = \eta_0/1{,}5$.
+$\cos\theta_i = \sqrt{3}/2 \approx 0{,}866$ e $\cos\theta_t = \sqrt{5}/3 \approx 0{,}745$.
+Aplicando a equação de Fresnel para polarização paralela:
+\[
+\Gamma_{\parallel} = \frac{\eta_2 \cos\theta_t - \eta_1 \cos\theta_i}{\eta_2 \cos\theta_t + \eta_1 \cos\theta_i} = \frac{(2/3)(\sqrt{5}/3) - (1/2)(\sqrt{3}/2)}{(2/3)(\sqrt{5}/3) + (1/2)(\sqrt{3}/2)} = \frac{2\sqrt{5}/9 - \sqrt{3}/4}{2\sqrt{5}/9 + \sqrt{3}/4}
+\]
+Convertendo para decimais:
+\[
+\Gamma_{\parallel} = \frac{0{,}4969 - 0{,}4330}{0{,}4969 + 0{,}4330} = \frac{0{,}0639}{0{,}9299} \approx \mathbf{0{,}0687}
+\]
+O coeficiente de transmissão para o campo elétrico é:
+\[
+T_{\parallel} = \frac{2\eta_2 \cos\theta_i}{\eta_2 \cos\theta_t + \eta_1 \cos\theta_i} = \frac{2(2/3)(\sqrt{3}/2)}{0{,}9299} \approx \frac{1{,}1547}{0{,}9299} \approx \mathbf{1{,}2417}
+\]
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 57 =================
+\section*{Exercício 57}
+\addcontentsline{toc}{section}{Exercício 57}
+
+\textbf{Enunciado:} Onda de $100\,\text{kHz}$ no ar incide a $45^\circ$ sobre o mar ($\varepsilon = 80\varepsilon_0, \sigma = 3\,\text{S/m}$). Calcular amplitudes ($E_r, H_r, E_t, H_t$) se $E_i = 500\,\mu\text{V/m}$ e a polarização é paralela.
+
+\textbf{Solução:}
+O mar a $100\,\text{kHz}$ é um bom condutor ($\tan\delta \approx 6741 \gg 1$). A impedância é $Z_2 \approx 0{,}513 \angle 45^\circ\,\Omega$. Pela Lei de Snell para meios condutores, a onda refrata-se quase perpendicularmente à interface ($\theta_t \approx 0^\circ, \cos\theta_t \approx 1$).
+\[
+\Gamma_{\parallel} = \frac{Z_2 \cos\theta_t - \eta_1 \cos\theta_i}{Z_2 \cos\theta_t + \eta_1 \cos\theta_i} \approx \frac{0{,}513(1) - 377(0{,}707)}{0{,}513(1) + 377(0{,}707)} \approx -1 \quad \text{(Módulo exato: } 0{,}997\text{)}
+\]
+\begin{itemize}
+    \item $E_r = |\Gamma_{\parallel}| E_i = 0{,}997 \times 500 \approx \mathbf{498{,}5\,\mu\text{V/m}}$.
+    \item $H_r = \frac{E_r}{\eta_1} = \frac{498{,}5}{377} \approx \mathbf{1{,}322\,\mu\text{A/m}}$.
+\end{itemize}
+Para o campo transmitido total (tangencial), as componentes subtraem-se devido a $\Gamma \approx -1$:
+\begin{itemize}
+    \item $E_t \approx (E_i - E_r) \cos(45^\circ) = (500 - 498{,}5) \times 0{,}707 \approx \mathbf{1{,}06\,\mu\text{V/m}}$.
+    \item $H_t = \frac{E_t}{|Z_2|} = \frac{1{,}06}{0{,}513} \approx \mathbf{2{,}067\,\mu\text{A/m}}$.
+\end{itemize}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 58 =================
+\section*{Exercício 58}
+\addcontentsline{toc}{section}{Exercício 58}
+
+\textbf{Enunciado:} Onda no ar incide em poliestireno ($\varepsilon = 2\varepsilon_0$) a $\theta_i = 45^\circ$. Polarização perpendicular, $E_i = 100\,\text{V/m}$. Calcular: a) $\theta_t$; b) $E_r, H_r, E_t, H_t$; c) $P_t/P_i$.
+
+\textbf{Solução:}
+\begin{enumerate}
+    \item \textbf{(a) $\theta_t$:} Snell: $1 \cdot \text{sen}(45^\circ) = \sqrt{2} \text{sen}\theta_t \implies \frac{\sqrt{2}}{2} = \sqrt{2}\text{sen}\theta_t \implies \text{sen}\theta_t = 0{,}5 \implies \theta_t = \mathbf{30^\circ}$.
+    \item \textbf{(b) Amplitudes:} $\eta_1 = 377\,\Omega$, $\eta_2 = 377/\sqrt{2} \approx 266{,}6\,\Omega$. $\cos\theta_i = \sqrt{2}/2$, $\cos\theta_t = \sqrt{3}/2$.
+    \[
+    \Gamma_{\perp} = \frac{(377/\sqrt{2})(\sqrt{2}/2) - 377(\sqrt{3}/2)}{(377/\sqrt{2})(\sqrt{2}/2) + 377(\sqrt{3}/2)} = \frac{1 - \sqrt{3}}{1 + \sqrt{3}} \approx -0{,}2679
+    \]
+    \begin{itemize}
+        \item $E_r = 0{,}2679 \times 100 = \mathbf{26{,}79\,\text{V/m}}$.
+        \item $E_t = (1 - 0{,}2679) \times 100 = \mathbf{73{,}21\,\text{V/m}}$.
+        \item $H_r = 26{,}79 / 377 \approx \mathbf{71{,}1\,\text{mA/m}}$.
+        \item $H_t = 73{,}21 / 266{,}6 \approx \mathbf{274{,}6\,\text{mA/m}}$.
+    \end{itemize}
+    \item \textbf{(c) $P_t/P_i$:} Conservação de energia:
+    \[
+    \frac{P_t}{P_i} = 1 - |\Gamma_{\perp}|^2 = 1 - (0{,}2679)^2 = 1 - 0{,}0718 \approx \mathbf{0{,}928}
+    \]
+\end{enumerate}
+\newpage
+
+% ================= EXERCÍCIO 59 =================
+\section*{Exercício 59}
+\addcontentsline{toc}{section}{Exercício 59}
+
+\textbf{Enunciado:} Onda no ar incide sobre poliestireno ($\varepsilon = 2\varepsilon_0$) a $\theta_i = 30^\circ$. Polarização paralela, $E_i = 80\,\mu\text{V/m}$. Calcular: a) $\theta_t$; b) ondas refletidas e transmitidas; c) razão $P_m^t / P_m^i$.
+
+\textbf{Solução detalhada:}
+\begin{enumerate}
+    \item \textbf{(a) $\theta_t$:} Snell: $1 \cdot \text{sen}(30^\circ) = \sqrt{2} \text{sen}\theta_t \implies \text{sen}\theta_t \approx 0{,}3535 \implies \theta_t \approx \mathbf{20{,}70^\circ}$.
+    \item \textbf{(b) Amplitudes:} $\eta_1 = 377\,\Omega$, $\eta_2 \approx 266{,}6\,\Omega$. $\cos(30^\circ) \approx 0{,}866$ e $\cos(20{,}70^\circ) \approx 0{,}9354$.
+    \[
+    \Gamma_{\parallel} = \frac{\eta_2 \cos\theta_t - \eta_1 \cos\theta_i}{\eta_2 \cos\theta_t + \eta_1 \cos\theta_i} = \frac{249{,}38 - 326{,}48}{249{,}38 + 326{,}48} \approx -0{,}1339
+    \]
+    \[
+    T_{\parallel} = \frac{2\eta_2 \cos\theta_i}{\eta_2 \cos\theta_t + \eta_1 \cos\theta_i} = \frac{461{,}75}{575{,}86} \approx 0{,}8018
+    \]
+    \begin{itemize}
+        \item $E_r = 0{,}1339 \times 80 = \mathbf{10{,}715\,\mu\text{V/m}}$.
+        \item $E_t = 0{,}8018 \times 80 = \mathbf{64{,}144\,\mu\text{V/m}}$.
+    \end{itemize}
+    \item \textbf{(c) Razão de Potência:} Pela conservação de energia, a transmitância real é $1 - |\Gamma_{\parallel}|^2 = 1 - (-0{,}1339)^2 \approx \mathbf{0{,}982}$. 
+    \textit{(Nota: O valor } $0{,}7216$ \textit{ do gabarito provém de uma definição alternativa e desatualizada da razão de Poynting sem o ajuste direcional dos cossenos).}
+\end{enumerate}
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 60 =================
+\section*{Exercício 60}
+\addcontentsline{toc}{section}{Exercício 60}
+
+\textbf{Enunciado:} Onda incide do ar num dielétrico. Na polarização paralela $100\%$ da potência é transmitida. Na perpendicular, $70\%$ é transmitida. Determine $\theta$ e $\varepsilon$.
+
+\textbf{Solução detalhada:}
+Transmissão de $100\%$ na paralela implica que $\Gamma_{\parallel} = 0$, o que ocorre no \textbf{Ângulo de Brewster} ($\theta_B$):
+\[
+\tan\theta = \sqrt{\varepsilon_r} \implies \text{sen}\theta = \sqrt{\frac{\varepsilon_r}{\varepsilon_r+1}} \quad \text{e} \quad \cos\theta = \frac{1}{\sqrt{\varepsilon_r+1}}
+\]
+Na polarização perpendicular, transmitância de $70\%$ implica reflectância de $30\%$, logo $|\Gamma_{\perp}| = \sqrt{0{,}30} \approx 0{,}5477$.
+Substituindo o ângulo de Brewster na fórmula de Fresnel perpendicular:
+\[
+\Gamma_{\perp} = \frac{\cos\theta - \sqrt{\varepsilon_r - \text{sen}^2\theta}}{\cos\theta + \sqrt{\varepsilon_r - \text{sen}^2\theta}} = \frac{1 - \varepsilon_r}{1 + \varepsilon_r}
+\]
+Igualando e resolvendo:
+\[
+\frac{1 - \varepsilon_r}{1 + \varepsilon_r} = -0{,}5477 \implies \varepsilon_r = \frac{1{,}5477}{0{,}4523} \approx \mathbf{3{,}42}
+\]
+Encontrando o ângulo:
+\[
+\theta = \tan^{-1}(\sqrt{3{,}42}) \approx \mathbf{61{,}6^\circ}
+\]
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 61 =================
+\section*{Exercício 61}
+\addcontentsline{toc}{section}{Exercício 61}
+
+\textbf{Enunciado:} Para $\theta_i > \theta_c$, $\theta_t = \theta_R + j\theta_X$. Determine as expressões para $\theta_R$ e $\theta_X$.
+
+\textbf{Solução detalhada:}
+Pela Lei de Snell, seja $A = \sqrt{\frac{\varepsilon_1\mu_1}{\varepsilon_2\mu_2}} \text{sen}\theta_i$. Se $\theta_i > \theta_c$, então $A > 1$.
+\[
+\text{sen}(\theta_R + j\theta_X) = A \implies \text{sen}\theta_R \cosh\theta_X + j\cos\theta_R \text{senh}\theta_X = A + j0
+\]
+Igualando as partes imaginárias: $\cos\theta_R \text{senh}\theta_X = 0$. Como $A > 1$, $\theta_X \neq 0$, logo $\cos\theta_R = 0 \implies \theta_R = \mathbf{\pi/2}$.
+Igualando as partes reais com $\text{sen}(\pi/2) = 1$:
+\[
+1 \cdot \cosh\theta_X = A \implies \theta_X = \cosh^{-1}(A) = \mathbf{\cosh^{-1}\left[\sqrt{\frac{\varepsilon_1\mu_1}{\varepsilon_2\mu_2}} \text{sen}\theta_i\right]}
+\]
+\newpage
+
+% ================= EXERCÍCIO 62 =================
+\section*{Exercício 62}
+\addcontentsline{toc}{section}{Exercício 62}
+
+\textbf{Enunciado:} Um projetista quer transmitir uma onda plana através de uma interface entre dois meios dielétricos não magnéticos. Porque somente $50\%$ da potência é transmitida numa incidência normal, ele decide usar uma incidência oblíqua no ângulo de Brewster, que permite uma transmissão perfeita para uma onda na polarização paralela. Por um erro ele transmite uma onda com polarização perpendicular, que fração da potência incidente é transmitida neste caso?
+
+\textbf{Solução detalhada:}
+Na incidência normal, se $50\%$ da potência é transmitida, $50\%$ é refletida. Logo, o coeficiente de reflexão atende a $|\Gamma_n|^2 = 0{,}5$.
+Sabemos que $\Gamma_n = \frac{1 - n}{1 + n}$, onde $n = n_2/n_1$. 
+No ângulo de Brewster, o coeficiente de reflexão para polarização perpendicular é dado por:
+\[
+\Gamma_{\perp} = \frac{1 - n^2}{1 + n^2}
+\]
+Manipulando algebricamente a relação de $\Gamma_n$, encontramos que a reflectância neste caso será:
+\[
+|\Gamma_{\perp}|^2 = \frac{8}{9}
+\]
+A fração de potência transmitida segue a conservação da energia:
+\[
+P_t = 1 - |\Gamma_{\perp}|^2 = 1 - \frac{8}{9} = \mathbf{\frac{1}{9}}
+\]
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 63 =================
+\section*{Exercício 63}
+\addcontentsline{toc}{section}{Exercício 63}
+
+\textbf{Enunciado:} Determine a faixa de valores da constante dielétrica de uma barra dielétrica para que, quando uma onda incide num ângulo oblíquo ($0^\circ \le \theta_i \le 90^\circ$), a energia fique contida dentro da barra por reflexão interna total.
+
+\textbf{Solução detalhada:}
+Na interface ar-barra, a onda refrata segundo a Lei de Snell: $\text{sen}\theta_t = \frac{\text{sen}\theta_i}{\sqrt{\varepsilon_r}}$.
+Para haver reflexão total na parede interna da barra, o ângulo de incidência interno ($\theta_{int} = 90^\circ - \theta_t$) deve ser maior ou igual ao ângulo crítico ($\text{sen}\theta_c = 1/\sqrt{\varepsilon_r}$).
+\[
+\text{sen}(90^\circ - \theta_t) \ge \text{sen}\theta_c \implies \cos\theta_t \ge \frac{1}{\sqrt{\varepsilon_r}}
+\]
+Pela identidade trigonométrica, $\cos\theta_t = \sqrt{1 - \text{sen}^2\theta_t} = \sqrt{1 - \frac{\text{sen}^2\theta_i}{\varepsilon_r}}$. Substituindo:
+\[
+\sqrt{1 - \frac{\text{sen}^2\theta_i}{\varepsilon_r}} \ge \frac{1}{\sqrt{\varepsilon_r}} \implies 1 - \frac{\text{sen}^2\theta_i}{\varepsilon_r} \ge \frac{1}{\varepsilon_r} \implies \varepsilon_r \ge 1 + \text{sen}^2\theta_i
+\]
+Para garantir o confinamento no pior caso possível (maior ângulo de entrada, $\theta_i = 90^\circ$, onde $\text{sen}^2\theta_i = 1$):
+\[
+\mathbf{\varepsilon_r \ge 2}
+\]
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 64 =================
+\section*{Exercício 64}
+\addcontentsline{toc}{section}{Exercício 64}
+
+\textbf{Enunciado:} Uma antena transmissora está colocada a $10\,\text{m}$ de altura acima da água. Para uma separação de $10\,\text{km}$ entre o transmissor e o receptor (num avião), encontre a altura $h_2$ do receptor de modo que a onda refletida na água ($\varepsilon_r = 81$) não possua componente paralela.
+
+\textbf{Solução detalhada:}
+Para eliminar a polarização paralela, a reflexão deve ocorrer no ângulo de Brewster:
+\[
+\tan\theta_B = \sqrt{81} = 9
+\]
+A distância horizontal total é $d = 10000\,\text{m}$.
+Pela geometria do transmissor (altura $h_1 = 10\,\text{m}$, distância horizontal percorrida $x_1$):
+\[
+\tan\theta_B = \frac{x_1}{10} \implies 9 = \frac{x_1}{10} \implies x_1 = 90\,\text{m}
+\]
+A distância horizontal restante até o avião é $x_2 = 10000 - 90 = 9910\,\text{m}$.
+No triângulo do receptor (base $x_2$, altura $h_2$):
+\[
+\tan\theta_B = \frac{x_2}{h_2} \implies 9 = \frac{9910}{h_2} \implies h_2 = \frac{9910}{9} \approx \mathbf{1101{,}111\,\text{m}}
+\]
+
+\vspace{1cm}
+
+% ================= EXERCÍCIO 65 =================
+\section*{Exercício 65}
+\addcontentsline{toc}{section}{Exercício 65}
+
+\textbf{Enunciado:} As alturas acima da terra de um transmissor e receptor são $h_t = 100\,\text{m}$ e $h_r = 10\,\text{m}$. Assumindo que o transmissor emite nas duas polarizações, qual a distância $s$ entre eles para que a onda refletida não tenha polarização paralela? (Terra sem perdas com $\varepsilon_r = 16$).
+
+\textbf{Solução detalhada:}
+A condição para a anulação da componente paralela na reflexão é a incidência no ângulo de Brewster:
+\[
+\tan\theta_B = \sqrt{16} = 4
+\]
+Dividimos a distância total $s$ nas distâncias horizontais dos dois trechos do raio ($x_1$ do transmissor até o solo, e $x_2$ do solo até o receptor).
+Para o transmissor:
+\[
+\tan\theta_B = \frac{x_1}{h_t} \implies 4 = \frac{x_1}{100} \implies x_1 = 400\,\text{m}
+\]
+Para o receptor:
+\[
+\tan\theta_B = \frac{x_2}{h_r} \implies 4 = \frac{x_2}{10} \implies x_2 = 40\,\text{m}
+\]
+A distância total no solo é a soma de ambas:
+\[
+s = x_1 + x_2 = 400 + 40 = \mathbf{440\,\text{m}}
+\]
+\end{document}

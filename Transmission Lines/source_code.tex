@@ -1,0 +1,604 @@
+\documentclass[12pt,a4paper]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{titlesec}
+\usepackage{cite}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage[
+    hidelinks,
+    bookmarksopen=true,
+    bookmarksnumbered=true
+]{hyperref}
+
+\geometry{left=3cm,right=2cm,top=3cm,bottom=2cm}
+\onehalfspacing
+
+\begin{document}
+
+%====================================================
+%                       CAPA 
+%====================================================
+\begin{titlepage}
+\begin{center}
+
+\vspace*{2cm}
+
+\includegraphics[width=3cm]{brasao-ufc.png}
+
+\vspace{0.5cm}
+
+\textbf{\large UNIVERSIDADE FEDERAL DO CEARÁ} \\[0.2cm]
+\textbf{DEPARTAMENTO DE ENGENHARIA DE TELEINFORMÁTICA} \\[3cm]
+
+{\Large \textbf{PROJETO DE LINHAS DE TRANSMISSÃO}} \\
+
+\vspace{1cm}
+
+Stripline e Microstrip em 12 GHz
+
+\vfill
+
+Autor: Nelson Kauê Barroso Maia \\
+Matrícula: 554825
+
+\vfill
+
+Fortaleza - CE \\
+2026
+
+\end{center}
+
+\end{titlepage}
+
+\newpage
+
+%====================================================
+%                       CAPA 2
+%====================================================
+
+\begin{titlepage}
+
+\vspace*{4cm}
+
+\begin{center}
+\Large
+PROJETO DE LINHAS DE TRANSMISSÃO \\[0.2cm]
+\small
+Stripline e Microstrip em 12 GHz \\[0.2cm]
+\end{center}
+
+\vfill
+
+\hspace{8cm}
+\begin{minipage}{6cm}
+\small
+Relatório Técnico apresentado à disciplina de
+Guias e Ondas do Curso de Engenharia de
+Telecomunicações da Universidade Federal do
+Ceará, como parte dos requisitos para a
+avaliação do período 2026.1.
+
+\vspace{1cm}
+
+Prof. Sergio Antenor de Carvalho
+\end{minipage}
+
+\vfill
+
+\begin{center}
+\textbf{Fortaleza - CE}
+
+\vspace{0.2cm}
+
+\textbf{2026}
+\end{center}
+
+\end{titlepage}
+
+%====================================================
+% SUMÁRIO
+%====================================================
+
+\tableofcontents
+\newpage
+
+%====================================================
+% INTRODUÇÃO
+%====================================================
+
+\chapter{Introdução}
+
+As linhas de transmissão são estruturas fundamentais na engenharia de alta frequência, atuando como o elemento central em sistemas de micro-ondas, comunicações por satélite e circuitos de radiofrequência. A sua principal função consiste em guiar a energia eletromagnética entre componentes e subsistemas com o menor nível possível de perdas por atenuação e atenuações por descasamento (reflexões). 
+
+Em frequências elevadas, como na faixa de $12\,\text{GHz}$, as linhas de transmissão bifilares convencionais tornam-se inviáveis devido às perdas por radiação e ao efeito pelicular pronunciado. Nesse cenário, as estruturas planares baseadas em tecnologia de circuitos impressos (PCB) destacam-se como soluções ideais. Neste trabalho, são analisadas e projetadas duas das geometrias clássicas mais utilizadas na indústria de micro-ondas:
+
+\begin{itemize}
+    \item \textbf{Linha Stripline:} caracterizada por condutores totalmente confinados por um dielétrico homogêneo entre dois planos de terra, oferecendo excelente blindagem contra interferências;
+    \item \textbf{Linha Microstrip:} constituída por uma trilha condutora exposta ao ar sobre um substrato dielétrico e um único plano de terra inferior, amplamente integrada devido à facilidade de fabricação e montagem de componentes.
+\end{itemize}
+
+Os critérios de dimensionamento e modelagem matemática foram desenvolvidos utilizando como fundamentação teórica as formulações clássicas apresentadas por David M. Pozar em sua obra \textit{Microwave Engineering} (4ª edição).
+
+As especificações nominais estabelecidas para a execução dos projetos são dadas por:
+
+\begin{align*}
+f &= 12\,\text{GHz} \quad \text{(Frequência de operação)} \\
+\theta_0 &= 160^{\circ} \quad \text{(Atraso de fase elétrico especificado)}
+\end{align*}
+
+\newpage
+
+Com base nessas diretrizes, este relatório tem como objetivos específicos:
+
+\begin{itemize}
+    \item Projetar geometricamente uma linha \text{stripline} operando na frequência de $12 \,\text{GHz}$ para uma impedância característica especificada;
+    \item Avaliar analiticamente o comportamento da impedância e determinar a largura de banda operacional para um coeficiente de reflexão máximo de $5\%$ ($|\Gamma| \le 0,05$);
+    \item Projetar uma linha \textit{microstrip} que forneça um atraso de fase elétrico de $160^{\circ}$ no comprimento físico calculado;
+    \item Mapear a sensibilidade da estrutura e determinar a banda de operação que limite a variação máxima do atraso (\textit{delay}) a $5\%$ do valor nominal;
+    \item Desenvolver e validar as ferramentas computacionais e gráficos de resposta via scripts em ambiente MATLAB.
+\end{itemize}
+
+%====================================================
+% FUNDAMENTAÇÃO TEÓRICA
+%====================================================
+
+\chapter{Fundamentação Teórica}
+
+\section{Linhas de Transmissão}
+
+As linhas de transmissão são estruturas físicas distribuídas, projetadas para transportar sinais eletromagnéticos de alta frequência entre dois pontos distintos de um circuito. Quando o comprimento físico da linha torna-se comparável ao comprimento de onda do sinal guiado ($\lambda$), os efeitos de parâmetros distribuídos passam a predominar sobre a teoria de circuitos de parâmetros concentrados, exigindo a modelagem de tensões e correntes como funções da posição e do tempo.
+
+O comportamento de uma linha de transmissão ideal ou real é governado por quatro parâmetros fundamentais:
+
+\begin{itemize}
+    \item \textbf{Impedância Característica ($Z_0$):} a razão entre as ondas de tensão e corrente que se propagam em um único sentido;
+    \item \textbf{Constante de Propagação ($\gamma$):} parâmetro complexo que dita a atenuação e o deslocamento de fase do sinal ao longo do espaço, definido por:
+    
+    \begin{equation}
+    \boxed{
+        \gamma = \alpha + j\beta = \sqrt{(R + j\omega L)(G + j\omega C)}
+    }
+    \end{equation}
+    
+    onde $\alpha$ é a constante de atenuação e $\beta$ é a constante de fase;
+    
+    \item \textbf{Velocidade de Fase ($v_p$):} a velocidade com que as frentes de fase constante se propagam no meio.
+
+    \begin{equation}
+    \boxed{v_p = \frac{\omega}{\beta}}
+    \end{equation}
+
+    \newpage
+     
+    \item \textbf{Atraso de Propagação ($\tau$):} o tempo necessário para que o sinal percorra uma unidade de comprimento, definido pelo inverso da velocidade de fase 
+    
+    \begin{equation}
+    \boxed{\tau = \frac{1}{v_p}}
+    \end{equation}
+    
+\end{itemize}
+
+\newpage
+
+\subsection{Impedância característica de uma linha com perdas}
+
+Expressão geral:
+
+\begin{equation}
+\boxed{
+Z_0 = \sqrt{\frac{R+j\omega L}{G+j\omega C}}
+}
+\end{equation}
+
+\subsection{Impedância característica de uma linha sem perdas}
+
+Para o caso ideal de linhas sem perdas (onde a resistência em série dos condutores $R=0$ e a condutância em paralelo do dielétrico $G=0$), a expressão simplifica-se para:
+
+\begin{equation}
+\boxed{
+Z_0 = \sqrt{\frac{L}{C}}
+}
+\end{equation}
+
+\newpage
+
+%====================================================
+% STRIPLINE
+%====================================================
+
+\section{Linha Stripline}
+
+A linha \textit{stripline} consiste em uma fita condutora central de largura $w$, imersa em um substrato dielétrico homogéneo de permissividade relativa $\varepsilon_r$, completamente confinada entre dois planos de terra paralelos distanciados por uma altura $b$.
+
+As principais vantagens desta geometria incluem:
+
+\begin{itemize}
+    \item Excelente blindagem eletromagnética natural contra interferências externas (EMI);
+    \item Baixa radiação de espúrios para o restante do circuito;
+    \item Propagação no modo puro TEM (Transversal Eletromagnético), garantindo ausência de dispersão cromática.
+\end{itemize}
+
+Desprezando a espessura do condutor central ($t \to 0$), a impedância característica aproximada para fitas largas pode ser obtida através da formulação matemática proposta por Pozar:
+
+\begin{equation}
+\boxed{
+Z_0 = \frac{30\pi}{\sqrt{\varepsilon_r}} \frac{1}{\left( \frac{w}{b} + 0,441 \right)}
+}
+\end{equation}
+
+onde:
+
+\begin{itemize}
+    \item $w$ - Representa a largura da fita condutora;
+    \item $b$ - Indica a distância total entre os planos de terra superiores e inferiores;
+    \item $\varepsilon_r$ - Denota a permissividade relativa do meio dielétrico.
+\end{itemize}
+
+\newpage
+
+%====================================================
+% MICROSTRIP
+%====================================================
+
+\section{Linha Microstrip}
+
+A linha \textit{microstrip} é uma estrutura planar assimétrica, constituída por uma trilha condutora de largura $w$ posicionada sobre a superfície superior de um substrato dielétrico de espessura $h$, contendo um único plano de terra acoplado na face inferior.
+
+Diferentemente da \textit{stripline}, a \textit{microstrip} possui uma estrutura de contorno aberta, o que faz com que as linhas de campo eletromagnético se distribuam parcialmente no substrato e parcialmente no ar adjacente. Como a onda viaja em um meio heterogéneo, a linha não suporta um modo TEM puro, mas sim um modo híbrido quase-TEM (\textit{quasi-TEM}), manifestando um comportamento dispersivo com a frequência.
+
+Para simplificar a modelagem, define-se uma permissividade dielétrica efetiva ($\varepsilon_{eff}$), que substitui o meio heterogéneo por um meio homogéneo equivalente fictício. Para o caso aplicável de fitas largas ($\frac{w}{h} \ge 1$), a equação aproximada de Wheeler e Schneider é dada por:
+
+\begin{equation}
+\boxed{
+\varepsilon_{eff} = \frac{\varepsilon_r+1}{2} + \frac{\varepsilon_r-1}{2}\left(1+12\frac{h}{w}\right)^{-1/2}
+}
+\end{equation}
+
+\subsection{Deslocamento de fase elétrica}
+
+O atraso ou deslocamento de fase elétrico ($\theta$) provocado por uma linha com comprimento físico $l$ é equacionado por:
+
+\begin{equation}
+\boxed{
+\theta = \beta l
+}
+\end{equation}
+
+Sendo a constante de fase dada em função da permissividade efetiva do meio por:
+
+\begin{equation}
+\boxed{
+\beta = \frac{2\pi f \sqrt{\varepsilon_{eff}}}{c_0}
+}
+\end{equation}
+
+onde:
+
+\begin{itemize}
+    \item $f$ - Frequência de operação do sinal; 
+    \item $c_0 \approx 3 \times 10^8\,\text{m/s}$ - Velocidade da luz no vácuo.
+\end{itemize}
+
+%====================================================
+% PROJETO DA LINHA STRIPLINE
+%====================================================
+
+\chapter{Projeto da Linha Stripline}
+
+\section{Parâmetros Dimensionais do Projeto}
+
+Para o desenvolvimento do projeto da linha \textit{stripline} operando na frequência central de $12\,\text{GHz}$, foram adotados os seguintes parâmetros geométricos e de materiais para o substrato dielétrico:
+
+\begin{itemize}
+    \item Permissividade relativa do meio ($\varepsilon_r$): $2,2$ (Teflon/Duroid);
+    \item Espaçamento total entre os planos de terra ($b$): $3,0\,\text{mm}$;
+    \item Largura nominal da fita condutora ($w$): $1,2\,\text{mm}$.
+\end{itemize}
+
+Aplicando a formulação analítica de Pozar para fitas condutoras ideais com espessura desprezível ($t \to 0$), a impedância característica nominal é equacionada por:
+
+\begin{equation}
+\boxed{
+Z_0 = \frac{30\pi}{\sqrt{\varepsilon_r}}\frac{1}{\left(\frac{w}{b}+0,441\right)}
+}
+\end{equation}
+
+Substituindo os valores nominais adotados, obtém-se o seguinte desenvolvimento:
+
+\begin{align*}
+Z_0 = 
+\frac{30\pi}{\sqrt{2,2}}\frac{1}{\left(\frac{1,2}{3,0}+0,441\right)} = \frac{94,248}{1,483} \cdot \frac{1}{(0,400 + 0,441)}
+\end{align*}
+
+\begin{align*}
+\boxed{
+Z_0 \approx 75,55\,\Omega
+}
+\end{align*}
+
+\newpage
+
+\section{Análise de Banda para Reflexão Máxima de 5\%}
+
+Um dos critérios de desempenho mais importantes em linhas de transmissão é a largura de banda de casamento eletromagnético. O projeto estipula que o módulo do coeficiente de reflexão na entrada da linha não deve exceder o limite de 5\%:
+
+\begin{equation}
+\boxed{
+|\Gamma| \le 0,05
+}
+\end{equation}
+
+O coeficiente de reflexão ($\Gamma$) relaciona-se diretamente com a impedância característica da linha ($Z_0$) e a impedância da carga de terminação ($Z_L$) através da expressão:
+
+\begin{equation}
+\boxed{
+\Gamma = \frac{Z_L - Z_0}{Z_L + Z_0}
+}
+\end{equation}
+
+Considerando o acoplamento da linha projetada a um sistema de instrumentação padrão de $50\,\Omega$ ($Z_L = 50\,\Omega$), a resposta de reflexão da linha foi mapeada computacionalmente varrendo-se a faixa espectral de $10\,\text{GHz}$ a $14\,\text{GHz}$, onde os efeitos dispersivos das transições e conectores passam a influenciar o descasamento.
+
+\newpage
+
+\section{Resultados e Discussão}
+
+A partir das simulações numéricas, constatou-se que a estrutura atende rigorosamente ao critério de reflexão mínima ($|\Gamma| \le 0,05$) na janela espectral compreendida entre:
+
+\begin{equation}
+11,2\,\text{GHz} \le f \le 12,8\,\text{GHz}
+\end{equation}
+
+Os resultados obtidos podem ser melhor compreendidos por meio da análise gráfica da impedância característica e do coeficiente de reflexão ao longo da faixa de frequências investigada. A Figura \ref{fig:z0_stripline} apresenta a evolução da impedância característica da linha em função da frequência, permitindo visualizar a estabilidade elétrica da estrutura na região de operação.
+
+Observa-se que a impedância permanece próxima do valor nominal calculado analiticamente, evidenciando que pequenas variações espectrais produzem alterações reduzidas nas propriedades de propagação da linha.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{Figuras/stripline/Impedancia-caracteristica.png}
+\caption{Impedância característica da linha stripline em função da frequência.}
+\label{fig:z0_stripline}
+\end{figure}
+
+\newpage
+
+A estabilidade observada na impedância reflete diretamente no comportamento do coeficiente de reflexão. Como o coeficiente $\Gamma$ depende do descasamento entre a impedância característica da linha e a impedância da carga, pequenas variações em $Z_0$ tendem a produzir níveis reduzidos de reflexão.
+
+A Figura \ref{fig:gamma_stripline} apresenta a resposta do coeficiente de reflexão ao longo da faixa analisada, permitindo identificar visualmente a região espectral que atende ao critério de projeto estabelecido.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{Figuras/stripline/coeficiente-de-reflexao.png}
+\caption{Coeficiente de reflexão da linha stripline em função da frequência.}
+\label{fig:gamma_stripline}
+\end{figure}
+
+Verifica-se que o módulo do coeficiente de reflexão permanece abaixo do limite especificado de $5\%$ dentro da faixa de frequências previamente determinada. Esse resultado indica que a linha mantém um adequado nível de casamento eletromagnético na região de interesse, minimizando perdas por reflexão e favorecendo a transferência eficiente de potência.
+
+%====================================================
+% PROJETO DA LINHA MICROSTRIP
+%====================================================
+
+\chapter{Projeto da Linha Microstrip}
+
+\section{Parâmetros Iniciais do Projeto}
+
+O projeto da linha \textit{microstrip} visa obter um atraso de fase específico operando na frequência central de $12\,\text{GHz}$. Para isso, utilizou-se um substrato condutor padrão FR4 com as seguintes especificações nominais:
+
+\begin{itemize}
+    \item Permissividade relativa do substrato ($\varepsilon_r$): $4,4$;
+    \item Espessura do substrato dielétrico ($h$): $1,6\,\text{mm}$;
+    \item Largura da trilha condutora superior ($w$): $3,0\,\text{mm}$;
+    \item Atraso de fase elétrico nominal alvo ($\theta_0$): $160^{\circ}$.
+\end{itemize}
+
+\newpage
+
+\section{Permissividade Dielétrica Efetiva}
+
+Como as linhas de campo da \textit{microstrip} dividem-se entre o substrato e o ar, determina-se a permissividade efetiva ($\varepsilon_{eff}$). Dado que a razão dimensional atende ao critério de fita larga ($\frac{w}{h} = \frac{3,0}{1,6} = 1,875 \ge 1$), aplica-se a formulação matemática de Schneider:
+
+\begin{equation}
+\boxed{
+\varepsilon_{eff} = \frac{\varepsilon_r+1}{2} + \frac{\varepsilon_r-1}{2}\left(1+12\frac{h}{w}\right)^{-1/2}
+}
+\end{equation}
+
+Substituindo os parâmetros do problema:
+
+\begin{align*}
+\varepsilon_{eff} = 
+\frac{4,4+1}{2} + \frac{4,4-1}{2}\left(1+12\cdot\frac{1,6}{3,0}\right)^{-1/2} = 
+2,7 + \frac{1,7}{\sqrt{7,4}}
+\end{align*}
+
+\begin{align*}
+\boxed{
+\varepsilon_{eff} \approx 3,33
+}
+\end{align*}
+
+\newpage
+
+\section{Impedância Característica da Estrutura}
+
+Para validar o casamento eletromagnético da linha com o restante do circuito, calcula-se a impedância característica ($Z_0$). 
+
+Utilizando a expressão de Wheeler para o regime $\frac{w}{h} \ge 1$:
+
+\begin{equation}
+\boxed{
+Z_0 = \frac{120\pi}{\sqrt{\varepsilon_{eff}} \left[ \frac{w}{h} + 1,393 + 0,667 \ln\left(\frac{w}{h} + 1,444\right) \right]}
+}
+\end{equation}
+
+Substituindo os valores geométricos e a permissividade efetiva calculada:
+
+\begin{align*}
+Z_0 &= \frac{376,99}{\sqrt{3,33} \left[ 1,875 + 1,393 + 0,667 \ln\left(1,875 + 1,444\right) \right]} \\
+Z_0 &= \frac{376,99}{1,825 \cdot \left[ 3,268 + 0,667 \ln(3,319) \right]} \\
+Z_0 &\approx \frac{206,57}{3,268 + 0,800}
+\end{align*}
+
+\begin{align*}
+\boxed{
+Z_0 \approx 50,78\,\Omega
+}
+\end{align*}
+
+O resultado demonstra que as dimensões adotadas configuram, na prática, uma linha de transmissão casada muito próxima ao padrão industrial de $50\,\Omega$.
+
+\newpage
+
+\section{Comprimento Físico da Trilha}
+
+\subsection{Constante de fase}
+
+A constante de fase ($\beta$) da onda que se propaga no meio guiado heterogêneo a $12\,\text{GHz}$ é dada por:
+
+\begin{equation}
+\boxed{
+\beta = \frac{2\pi f\sqrt{\varepsilon_{eff}}}{c_0}
+}
+\end{equation}
+
+Substituindo os valores:
+
+\begin{equation}
+\beta = \frac{2\pi \cdot 12\times10^9 \cdot \sqrt{3,33}}{3\times10^8}
+\end{equation}
+
+\begin{equation}
+\boxed{
+\beta = \approx 458,7\,\text{rad/m}
+}
+\end{equation}
+
+\subsection{Atraso elétrico}
+
+Convertendo o atraso elétrico especificado de graus para radianos:
+
+\begin{equation}
+\theta_0 = 160^{\circ} \cdot \frac{\pi}{180^{\circ}}
+\end{equation}
+
+\begin{equation}
+\boxed{
+\theta_0 = \approx 2,7925\,\text{rad}
+}
+\end{equation}
+
+Dessa forma, o comprimento físico $l$ necessário para sintetizar o dispositivo é dado pela seguinte relação:
+
+\begin{equation}
+\boxed{
+l = \frac{\theta_0}{\beta}
+}
+\end{equation}
+
+Substituindo os valores:
+
+\begin{equation}
+l = \frac{2,7925}{458,7}
+\end{equation}
+
+\begin{equation}
+\boxed{
+l \approx 0,00608\,\text{m} = 6,08\,\text{mm}
+}
+\end{equation}
+
+\newpage
+
+\section{Banda de Operação para Tolerância de 5\% no Delay}
+
+O projeto estabelece que a variação máxima aceitável para o atraso elétrico ao redor da frequência de operação deve ser de no máximo $5\%$. Assim, o intervalo de desvio angular tolerado é:
+
+\begin{equation}
+\boxed{
+152^{\circ} \le \theta \le 168^{\circ}
+}
+\end{equation}
+
+Admitindo a hipótese quasi-TEM de baixa dispersão para o substrato nessa faixa espectral, o atraso varia de forma linear com a frequência. A variação de $\pm 5\%$ transcreve-se diretamente na largura de banda útil da linha, delimitando a resposta adequada no intervalo de:
+
+\begin{equation}
+11,4\,\text{GHz} \le f \le 12,6\,\text{GHz}
+\end{equation}
+
+A análise do atraso de fase constitui um dos principais critérios de desempenho da linha microstrip projetada. Como o comprimento físico foi dimensionado para produzir um deslocamento elétrico de $160^{\circ}$ na frequência central de $12\,\text{GHz}$, torna-se necessário avaliar o comportamento desse atraso ao longo da faixa espectral de interesse.
+
+\newpage
+
+A Figura \ref{fig:delay_microstrip} apresenta a evolução do atraso elétrico em função da frequência.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{Figuras/microstrip/delay.png}
+\caption{Atraso de fase da linha microstrip em função da frequência.}
+\label{fig:delay_microstrip}
+\end{figure}
+
+Conforme esperado para uma estrutura operando em regime quase-TEM, observa-se uma relação aproximadamente linear entre frequência e atraso de fase. Entretanto, para fins de projeto, não basta analisar apenas o valor absoluto do atraso; é necessário quantificar o quanto ele se afasta do valor nominal especificado.
+
+\newpage
+
+Para esse propósito, a Figura \ref{fig:desvio_microstrip} apresenta o desvio percentual do atraso em relação ao valor de referência de $160^{\circ}$.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{Figuras/microstrip/desvio.png}
+\caption{Desvio percentual do atraso de fase em relação ao valor nominal.}
+\label{fig:desvio_microstrip}
+\end{figure}
+
+A partir da análise do desvio percentual, verifica-se que a estrutura atende ao requisito de manter a variação do atraso limitada a $\pm 5\%$ em torno do valor nominal dentro da faixa compreendida entre $11,4\,\text{GHz}$ e $12,6\,\text{GHz}$. Dessa forma, a linha projetada apresenta desempenho compatível com as especificações estabelecidas para o projeto.
+
+%====================================================
+% CONCLUSÃO
+%====================================================
+
+\chapter{Conclusão}
+
+O presente trabalho teve como objetivo o projeto e a análise de duas importantes estruturas de linhas de transmissão planares empregadas em sistemas de micro-ondas: as linhas \textit{stripline} e \textit{microstrip}. A partir das formulações clássicas encontradas na literatura especializada, foi possível dimensionar ambas as estruturas para operação em 12 GHz e avaliar seus principais parâmetros elétricos e eletromagnéticos.
+
+Os resultados obtidos demonstraram que a linha \textit{stripline} apresenta excelente confinamento dos campos eletromagnéticos, proporcionando propagação em modo TEM puro, elevada imunidade a interferências externas e reduzida emissão de radiação. Essas características tornam essa topologia especialmente adequada para aplicações que exigem elevado desempenho eletromagnético e alto grau de blindagem.
+
+Por sua vez, a linha \textit{microstrip} mostrou-se uma solução eficiente e amplamente compatível com os processos convencionais de fabricação de placas de circuito impresso. A análise realizada permitiu determinar as dimensões necessárias para atender às especificações de impedância e atraso de fase estabelecidas, além de avaliar a faixa de operação compatível com os limites de tolerância definidos para o projeto.
+
+A comparação entre as duas estruturas evidenciou o compromisso existente entre desempenho eletromagnético e simplicidade de implementação. Enquanto a \textit{stripline} oferece melhores condições de confinamento de campo e propagação, a \textit{microstrip} apresenta maior praticidade de fabricação, menor custo e facilidade de integração com componentes eletrônicos comerciais.
+
+Dessa forma, conclui-se que os objetivos propostos foram plenamente alcançados, possibilitando não apenas o dimensionamento das estruturas especificadas, mas também a compreensão dos principais fenômenos físicos envolvidos em seu funcionamento. Os resultados obtidos reforçam a importância das linhas de transmissão planares no desenvolvimento de sistemas modernos de radiofrequência e micro-ondas, constituindo uma base sólida para estudos e projetos mais avançados na área de telecomunicações.
+
+%====================================================
+% REFERÊNCIAS
+%====================================================
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Referências}
+
+\begin{thebibliography}{99}
+
+\bibitem{pozar}
+POZAR, David M.
+\textit{Microwave Engineering}. 4ª edição.
+New Jersey: John Wiley \& Sons, 2011.
+
+\bibitem{collin}
+COLLIN, Robert E.
+\textit{Foundations for Microwave Engineering}. 2ª edição.
+New York: IEEE Press/Wiley, 2001.
+
+\end{thebibliography}
+
+\end{document}
